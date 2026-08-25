@@ -7,6 +7,14 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif; background-color: #0d1117; color: #e6edf3; line-height: 1.6; }
+        
+        /* Navigation Bar */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; background: #161b22; border-bottom: 1px solid #30363d; }
+        nav .brand { font-size: 1.3rem; font-weight: 700; color: #58a6ff; text-decoration: none; }
+        nav .nav-links a { color: #8b949e; text-decoration: none; margin-left: 20px; font-size: 0.95rem; font-weight: 500; transition: color 0.2s; }
+        nav .nav-links a:hover { color: #58a6ff; }
+        nav .nav-links a.active { color: #ffffff; }
+
         .container { max-width: 850px; margin: 0 auto; padding: 40px 20px; }
         header { text-align: center; margin-bottom: 50px; padding-top: 30px; }
         header h1 { font-size: 2.8rem; color: #58a6ff; letter-spacing: 1.5px; }
@@ -18,16 +26,27 @@
         .game-card h3 { font-size: 1.4rem; color: #58a6ff; margin-bottom: 10px; }
         .game-card p { color: #8b949e; margin-bottom: 18px; }
         
-        .btn-group a { display: inline-block; text-decoration: none; padding: 9px 18px; border-radius: 6px; font-weight: 600; font-size: 0.9em; margin-right: 10px; }
+        .btn-group a { display: inline-block; text-decoration: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 0.95em; margin-right: 10px; transition: transform 0.1s, opacity 0.2s; }
         .btn-primary { background: #238636; color: #ffffff; }
         .btn-secondary { background: #21262d; color: #c9d1d9; border: 1px solid #30363d; }
-        .btn-group a:hover { opacity: 0.85; }
+        .btn-group a:hover { opacity: 0.85; transform: translateY(-1px); }
 
-        footer { text-align: center; margin-top: 60px; color: #8b949e; font-size: 0.85rem; border-top: 1px solid #21262d; padding-top: 25px; }
-        footer a { color: #58a6ff; text-decoration: none; }
+        footer { text-align: center; margin-top: 60px; color: #8b949e; font-size: 0.9rem; border-top: 1px solid #21262d; padding-top: 25px; }
+        footer a { color: #58a6ff; text-decoration: none; margin: 0 10px; }
+        footer a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
+
+    <!-- Top Navigation Menu -->
+    <nav>
+        <a href="https://keneristudios.github.io/" class="brand">Keneri Studios</a>
+        <div class="nav-links">
+            <a href="https://keneristudios.github.io/" class="active">Home</a>
+            <a href="https://keneristudios.github.io/privacy-policy.html">Privacy Policy</a>
+            <a href="mailto:contact@keneristudios.com">Contact</a>
+        </div>
+    </nav>
 
     <div class="container">
         <header>
@@ -43,7 +62,8 @@
                 <p>An idle clicker tycoon game where you scale your operations, make strategic upgrades, and build your ultimate empire from the ground up.</p>
                 <div class="btn-group">
                     <a href="#" class="btn-primary">Play / Download</a>
-                    <a href="privacy-policy.html" class="btn-secondary">Privacy Policy</a>
+                    <!-- Direct link to privacy policy -->
+                    <a href="https://keneristudios.github.io/privacy-policy.html" class="btn-secondary">Privacy Policy &rarr;</a>
                 </div>
             </div>
         </section>
@@ -54,8 +74,12 @@
         </section>
 
         <footer>
-            <p>&copy; 2024–2026 Keneri Studios. All rights reserved.</p>
-            <p style="margin-top: 8px;">Contact: <a href="mailto:contact@keneristudios.com">contact@keneristudios.com</a></p>
+            <p>&copy; 2026 Keneri Studios. All rights reserved.</p>
+            <p style="margin-top: 10px;">
+                <a href="https://keneristudios.github.io/">Home</a> |
+                <a href="https://keneristudios.github.io/privacy-policy.html">Privacy Policy</a> |
+                <a href="mailto:contact@keneristudios.com">Contact Us</a>
+            </p>
         </footer>
     </div>
 
