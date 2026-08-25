@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Degen Empire: Richbro Edition | Keneri Studios</title>
+    <meta name="description" content="Official game page for Degen Empire: Richbro Edition by Keneri Studios. Build your empire, master satirical economics, and dominate the leaderboard.">
+    <style>
+        :root {
+            --bg-base: #0a0d14;
+            --bg-card: #121824;
+            --canary-gold: #ffd000;
+            --canary-glow: rgba(255, 208, 0, 0.25);
+            --text-main: #f0f6fc;
+            --text-muted: #8b949e;
+            --border-color: #232b3e;
+            --accent-green: #238636;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: var(--bg-base); color: var(--text-main); line-height: 1.6; }
+        
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 40px; background: rgba(10, 13, 20, 0.95); border-bottom: 1px solid var(--border-color); }
+        .logo { display: flex; align-items: center; gap: 10px; font-size: 1.15rem; font-weight: 800; color: var(--canary-gold); text-decoration: none; letter-spacing: 1px; }
+        .logo-icon { width: 24px; height: 24px; background: var(--canary-gold); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: #000; font-weight: 900; font-size: 0.8rem; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; margin-left: 20px; font-size: 0.9rem; font-weight: 500; }
+        .nav-links a:hover { color: var(--canary-gold); }
+
+        .container { max-width: 950px; margin: 0 auto; padding: 0 20px; }
+
+        /* Game Hero */
+        .game-hero { text-align: center; padding: 60px 20px 40px; }
+        .badge { display: inline-block; background: rgba(35, 134, 54, 0.2); border: 1px solid var(--accent-green); color: #3fb950; font-size: 0.8rem; font-weight: 700; padding: 5px 14px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
+        .game-hero h1 { font-size: 3.2rem; font-weight: 900; line-height: 1.1; margin-bottom: 15px; letter-spacing: -1px; }
+        .game-hero h1 span { color: var(--canary-gold); }
+        .game-hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 650px; margin: 0 auto 30px; }
+        
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 26px; border-radius: 8px; font-size: 0.95rem; font-weight: 700; text-decoration: none; transition: transform 0.15s; }
+        .btn-primary { background: var(--canary-gold); color: #000; box-shadow: 0 4px 20px var(--canary-glow); }
+        .btn-primary:hover { transform: translateY(-2px); }
+        .btn-secondary { background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border-color); margin-left: 10px; }
+        .btn-secondary:hover { border-color: var(--canary-gold); }
+
+        /* Highlights Grid */
+        .section-title { font-size: 1.8rem; font-weight: 800; text-align: center; margin: 50px 0 30px; }
+        .highlights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+        .highlight-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; }
+        .highlight-icon { font-size: 1.8rem; margin-bottom: 12px; }
+        .highlight-card h3 { font-size: 1.2rem; color: var(--text-main); margin-bottom: 8px; }
+        .highlight-card p { font-size: 0.9rem; color: var(--text-muted); }
+
+        /* Edutainment Banner */
+        .edu-box { background: linear-gradient(135deg, #121824 0%, #1a2234 100%); border: 1px solid var(--canary-gold); border-radius: 16px; padding: 35px; margin: 50px 0; }
+        .edu-box h3 { font-size: 1.5rem; color: var(--canary-gold); margin-bottom: 12px; }
+        .edu-box p { color: #ccd0db; font-size: 0.95rem; margin-bottom: 15px; }
+        .edu-list { margin-left: 20px; color: #a0aec0; font-size: 0.95rem; }
+        .edu-list li { margin-bottom: 6px; }
+
+        /* FAQ */
+        .faq-grid { display: grid; gap: 15px; margin-bottom: 50px; }
+        .faq-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 10px; padding: 20px 25px; }
+        .faq-card h4 { font-size: 1.05rem; color: var(--canary-gold); margin-bottom: 6px; }
+        .faq-card p { font-size: 0.9rem; color: var(--text-muted); }
+
+        footer { text-align: center; margin-top: 60px; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border-color); padding: 30px 20px; }
+        footer a { color: var(--canary-gold); text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">
+            <span class="logo-icon">K</span>
+            KENERI STUDIOS
+        </a>
+        <div class="nav-links">
+            <a href="index.html">&larr; Studio Home</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="mailto:keneristudios@gmail.com">Tester Support</a>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!-- Game Hero -->
+        <div class="game-hero">
+            <span class="badge">Closed Testing Phase</span>
+            <h1>DEGEN EMPIRE<br><span>Richbro Edition</span></h1>
+            <p>From living on instant noodles to running global financial hegemony. Master compounding assets, ride volatile market hype, and build the ultimate idle cashflow machine.</p>
+            <div>
+                <a href="mailto:keneristudios@gmail.com?subject=Degen%20Empire%20Closed%20Beta%20Tester%20Request" class="btn btn-primary">Join Closed Beta (Android)</a>
+                <a href="privacy-policy.html" class="btn btn-secondary">Game Privacy Policy</a>
+            </div>
+        </div>
+
+        <!-- Features Grid -->
+        <h2 class="section-title">Core Gameplay Highlights</h2>
+        <div class="highlights-grid">
+            <div class="highlight-card">
+                <div class="highlight-icon">📈</div>
+                <h3>The Hustle Loop</h3>
+                <p>Click, scale, automate. Reinvest your initial pennies into automated assets that generate billions while you sleep.</p>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">🚀</div>
+                <h3>Satirical Hype Cycles</h3>
+                <p>Ride high-octane economic bubbles, buy luxury trophy assets, and cash out before market corrections hit.</p>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">👑</div>
+                <h3>Prestige Multipliers</h3>
+                <p>Rebirth your empire to unlock permanent yield boosters, billionaire perks, and elite status trophies.</p>
+            </div>
+        </div>
+
+        <!-- Edutainment Callout -->
+        <div class="edu-box">
+            <h3>🧠 The "Smart Gaming" Angle: What You Actually Learn</h3>
+            <p>Underneath the addictive clicker mechanics and humor, <em>Degen Empire</em> teaches core financial and strategic fundamentals organically:</p>
+            <ul class="edu-list">
+                <li><strong>Compounding Growth:</strong> How small, consistent reinvestments outpace quick short-term cash.</li>
+                <li><strong>Opportunity Cost:</strong> Choosing between immediate liquid cash vs. long-term passive infrastructure.</li>
+                <li><strong>Cashflow Automation:</strong> Building systems that decouple your time from revenue generation.</li>
+            </ul>
+        </div>
+
+        <!-- FAQ -->
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-grid">
+            <div class="faq-card">
+                <h4>How do I join the Closed Testing on Google Play?</h4>
+                <p>Click the "Join Closed Beta" button or email us at <strong>keneristudios@gmail.com</strong>. We will add your Google Play email to our authorized tester whitelist.</p>
+            </div>
+            <div class="faq-card">
+                <h4>Does the game collect any personal data?</h4>
+                <p>No. We do not collect names, phone numbers, or passwords. Check our <a href="privacy-policy.html">Master Privacy Policy</a> for third-party ad and stability telemetry disclosures.</p>
+            </div>
+            <div class="faq-card">
+                <h4>Can I play offline?</h4>
+                <p>Yes. The game loop operates offline on your local device, and your earnings calculate immediately when you return.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 <strong>Keneri Studios</strong> &bull; Degen Empire: Richbro Edition</p>
+            <p style="margin-top: 8px;"><a href="index.html">Studio Home</a> | <a href="privacy-policy.html">Privacy Policy</a> | <a href="mailto:keneristudios@gmail.com">keneristudios@gmail.com</a></p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
