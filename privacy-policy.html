@@ -3,64 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Degen Empire</title>
+    <title>Privacy Policy - Degen Empire | Keneri Studios</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif; line-height: 1.6; color: #24292f; max-width: 800px; margin: 40px auto; padding: 0 20px; }
-        h1 { color: #0969da; margin-bottom: 5px; }
-        h2 { color: #1f2328; margin-top: 25px; font-size: 1.25rem; border-bottom: 1px solid #d0d7de; padding-bottom: 5px; }
-        p, li { color: #57606a; font-size: 0.95rem; }
-        ul { margin-left: 20px; }
-        a { color: #0969da; }
-        .footer { margin-top: 40px; border-top: 1px solid #d0d7de; padding-top: 20px; font-size: 0.85em; color: #6e7781; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif; background-color: #0d1117; color: #e6edf3; line-height: 1.6; }
+        
+        /* Navigation Bar */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; background: #161b22; border-bottom: 1px solid #30363d; }
+        nav .brand { font-size: 1.3rem; font-weight: 700; color: #58a6ff; text-decoration: none; }
+        nav .nav-links a { color: #8b949e; text-decoration: none; margin-left: 20px; font-size: 0.95rem; font-weight: 500; }
+        nav .nav-links a:hover { color: #58a6ff; }
+        nav .nav-links a.active { color: #ffffff; }
+
+        .container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+        h1 { color: #58a6ff; margin-bottom: 10px; font-size: 2.2rem; }
+        h2 { color: #f0f6fc; margin-top: 30px; margin-bottom: 10px; font-size: 1.3rem; border-bottom: 1px solid #30363d; padding-bottom: 5px; }
+        p, li { color: #8b949e; font-size: 1rem; margin-bottom: 10px; }
+        ul { margin-left: 25px; margin-bottom: 15px; }
+        a { color: #58a6ff; }
+        
+        .meta-info { background: #161b22; border: 1px solid #30363d; padding: 15px 20px; border-radius: 8px; margin: 20px 0; }
+        .meta-info p { margin-bottom: 5px; color: #c9d1d9; }
+
+        .btn-back { display: inline-block; background: #21262d; color: #c9d1d9; border: 1px solid #30363d; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 0.9rem; margin-top: 20px; }
+        .btn-back:hover { background: #30363d; color: #fff; }
+
+        footer { text-align: center; margin-top: 60px; color: #8b949e; font-size: 0.85rem; border-top: 1px solid #21262d; padding-top: 25px; margin-bottom: 40px; }
     </style>
 </head>
 <body>
 
-    <h1>Privacy Policy</h1>
-    <p><strong>Game:</strong> Degen Empire</p>
-    <p><strong>Studio:</strong> Keneri Studios</p>
-    <p><strong>Last updated:</strong> August 2026</p>
+    <!-- Top Navigation Bar -->
+    <nav>
+        <a href="https://keneristudios.github.io/" class="brand">Keneri Studios</a>
+        <div class="nav-links">
+            <a href="https://keneristudios.github.io/">Home</a>
+            <a href="https://keneristudios.github.io/privacy-policy.html" class="active">Privacy Policy</a>
+            <a href="mailto:contact@keneristudios.com">Contact</a>
+        </div>
+    </nav>
 
-    <p>This Privacy Policy explains how <strong>Keneri Studios</strong> handles user information in the mobile game <strong>Degen Empire</strong> ("the Game").</p>
+    <div class="container">
+        <h1>Privacy Policy</h1>
+        
+        <div class="meta-info">
+            <p><strong>Application:</strong> Degen Empire</p>
+            <p><strong>Developer:</strong> Keneri Studios</p>
+            <p><strong>Effective Date:</strong> August 2026</p>
+        </div>
 
-    <h2>1. Information We Collect Directly</h2>
-    <p>Keneri Studios does not collect, store, or transmit your personal identity details (such as your name, personal email, phone number, address, or payment credentials). We do not host dedicated user database accounts.</p>
+        <p>This Privacy Policy explains how <strong>Keneri Studios</strong> handles user information in our mobile game, <strong>Degen Empire</strong> ("the Game").</p>
 
-    <h2>2. Third-Party Services & Automated Data Collection</h2>
-    <p>The Game integrates trusted third-party software development kits (SDKs) to serve advertisements and support game stability. These providers may automatically collect non-personally identifiable technical information, including:</p>
-    <ul>
-        <li>Unique Advertising Identifiers (e.g., Google Advertising ID, Apple IDFA).</li>
-        <li>IP address and approximate geographic location (country/city level).</li>
-        <li>Device model, operating system version, and system language.</li>
-        <li>Ad performance and interaction metrics (views, impressions, clicks).</li>
-    </ul>
+        <h2>1. Information We Collect Directly</h2>
+        <p>Keneri Studios does not directly collect, store, or transmit any personal identification information (such as your legal name, email, phone number, location address, or banking credentials). We do not maintain any user databases or private servers containing your information.</p>
 
-    <p>For more details on how these providers handle data, please review their privacy policies:</p>
-    <ul>
-        <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Play Services & Google AdMob</a></li>
-        <li><a href="https://unity3d.com/legal/privacy-policy" target="_blank" rel="noopener">Unity Ads</a></li>
-    </ul>
+        <h2>2. Third-Party Services & Automated Data Collection</h2>
+        <p>While we do not collect personal data directly, the Game uses third-party Software Development Kits (SDKs) to serve advertisements and support game stability. These providers may automatically collect non-personally identifiable technical information, such as:</p>
+        <ul>
+            <li>Unique Advertising Identifiers (e.g., Google Advertising ID, Apple IDFA).</li>
+            <li>IP address and approximate geographic location (country/city level).</li>
+            <li>Device information (device model, operating system version, system language).</li>
+            <li>In-game ad performance data (impressions, clicks, views).</li>
+        </ul>
 
-    <h2>3. Game Progress and Save Data</h2>
-    <p>Your game progress, balances, and upgrades are stored locally on your mobile device (or synced securely through Google Play Games / Apple Game Center). Keneri Studios does not own or modify your save files on private servers.</p>
+        <p>To learn more about how our third-party advertising partners handle your data, please review their privacy policies:</p>
+        <ul>
+            <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Play Services & Google AdMob</a></li>
+            <li><a href="https://unity3d.com/legal/privacy-policy" target="_blank" rel="noopener">Unity Ads</a></li>
+        </ul>
 
-    <h2>4. Children’s Online Privacy (COPPA / GDPR)</h2>
-    <p>Our game is not directed to children under 13 years of age (or under 16 in the EEA). We do not knowingly collect personal data from children. If you believe a minor has provided data through third-party services, please contact us so we can take appropriate measures.</p>
+        <h2>3. Game Progress & Local Storage</h2>
+        <p>Your game progress, upgrades, and currency are saved locally on your device (or synced via official platform cloud services like Google Play Games / Apple Game Center). Keneri Studios does not access or alter your save files remotely.</p>
 
-    <h2>5. Managing Personalized Ads</h2>
-    <p>You can reset or disable ad personalization through your device settings at any time:</p>
-    <ul>
-        <li><strong>Android:</strong> <em>Settings &gt; Google &gt; Ads &gt; Delete / Reset advertising ID</em>.</li>
-        <li><strong>iOS:</strong> <em>Settings &gt; Privacy &amp; Security &gt; Tracking</em>.</li>
-    </ul>
+        <h2>4. Children’s Online Privacy (COPPA & GDPR)</h2>
+        <p>Our game is not directed at children under the age of 13 (or under 16 in the European Economic Area). We do not knowingly collect personal identifiable information from children.</p>
 
-    <h2>6. Contact Us</h2>
-    <p>If you have any questions about this Privacy Policy, you can contact us at:</p>
-    <p><strong>Email:</strong> <a href="mailto:contact@keneristudios.com">contact@keneristudios.com</a></p>
+        <h2>5. Managing Ad Personalization</h2>
+        <p>You can opt out of interest-based advertising or reset your ad ID at any time via your device settings:</p>
+        <ul>
+            <li><strong>Android:</strong> <em>Settings &gt; Google &gt; Ads &gt; Delete or Reset advertising ID</em>.</li>
+            <li><strong>iOS:</strong> <em>Settings &gt; Privacy &amp; Security &gt; Tracking</em>.</li>
+        </ul>
 
-    <div class="footer">
-        <p>&copy; Keneri Studios. All rights reserved.</p>
-        <p><a href="index.html">&larr; Back to Studio Home</a></p>
+        <h2>6. Contact Us</h2>
+        <p>If you have any questions or feedback regarding this Privacy Policy, please contact us at:</p>
+        <p><strong>Email:</strong> <a href="mailto:contact@keneristudios.com">contact@keneristudios.com</a></p>
+
+        <a href="https://keneristudios.github.io/" class="btn-back">&larr; Back to Keneri Studios Home</a>
+
+        <footer>
+            <p>&copy; 2026 Keneri Studios. All rights reserved.</p>
+        </footer>
     </div>
 
 </body>
