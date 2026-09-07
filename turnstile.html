@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Human check | Keneri Studios</title>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <style>
+        body { background: #0a0d14; color: #f0f6fc; font-family: -apple-system, 'Segoe UI', Roboto, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 90vh; margin: 0; }
+    </style>
+</head>
+<body>
+    <div class="cf-turnstile"
+        data-sitekey="0x4AAAAAAEqr3_CKj7pb8bV6"
+        data-callback="onToken"
+        data-error-callback="onErr"></div>
+    <script>
+        function onToken(t) {
+            if (window.TokenChannel) TokenChannel.postMessage(t);
+            else document.body.innerHTML = '<p>Verified. Return to the app.</p>';
+        }
+        function onErr() {
+            if (window.TokenChannel) TokenChannel.postMessage('ERROR');
+        }
+    </script>
+</body>
+</html>
