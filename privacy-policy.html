@@ -70,55 +70,67 @@
             <p><strong>Publisher / Developer:</strong> Keneri Studios</p>
             <p><strong>Applies to:</strong> All games, prototypes, and services (including <em>Degen Empire: Richbro Edition</em>)</p>
             <p><strong>Official Contact:</strong> <a href="mailto:keneristudios@gmail.com">keneristudios@gmail.com</a></p>
-            <p><strong>Effective Date:</strong> August 2026</p>
+            <p><strong>Effective Date:</strong> September 2026</p>
         </div>
 
         <h2>1. Scope of This Policy</h2>
         <p>This Master Privacy Policy applies to all mobile games, software applications, and web services published by <strong>Keneri Studios</strong> (collectively, "our Games" or "the Services"). By downloading, testing, or playing any of our titles—including pre-release closed betas—you acknowledge the practices outlined herein.</p>
 
-        <h2>2. Information We Do NOT Collect Directly</h2>
-        <p>Keneri Studios firmly believes in data minimization. We do not operate private servers to store personal user identities. Specifically:</p>
+        <h2>2. Data We Collect & How We Use It</h2>
+        <p>Keneri Studios adheres strictly to data minimization principles. We only collect the minimal information necessary to deliver core game features:</p>
         <ul>
-            <li>We do <strong>not</strong> collect or store your legal name, physical address, phone number, or personal email address inside our game code.</li>
-            <li>We do <strong>not</strong> require private account creation or passwords to play our games.</li>
-            <li>We do <strong>not</strong> sell, rent, monetize, or trade any player data to external data brokers.</li>
+            <li><strong>Account & Authentication Information (Optional):</strong> If you choose to connect with <strong>Google Sign-In</strong> to back up your progress across devices, we receive your Google account email address, display name, and unique User ID (UID) via Google Firebase Authentication. This information is used strictly for account management and cloud save synchronization.</li>
+            <li><strong>In-Game Profile & Leaderboard:</strong> Your chosen in-game alias, avatar, and total empire fortune may be uploaded to our public Forbes Leaderboard powered by Google Cloud Firestore.</li>
+            <li><strong>Purchase History:</strong> If you purchase an optional VIP pass or virtual package, we process the transaction receipt and product identifier (SKU) via Google Play Billing to activate your benefits and restore purchases. We never receive or store your payment card or banking information.</li>
+            <li><strong>Gameplay & Local Storage:</strong> Game progress, assets, vehicles, and portfolio data are stored locally on your device (encrypted via MMKV) and mirrored to secure Google Cloud Firestore when cloud sync is active.</li>
         </ul>
 
         <h2>3. Third-Party Services & Automated SDK Collection</h2>
-        <p>To support game stability, deliver advertising, and monitor game performance, our Games integrate trusted third-party Software Development Kits (SDKs). These third parties may automatically collect non-personally identifiable technical telemetry, including:</p>
+        <p>To support game stability, deliver optional rewarded advertising, and maintain leaderboards, our Games integrate trusted third-party Software Development Kits (SDKs). These third parties may automatically collect telemetry and technical identifiers:</p>
         <ul>
-            <li><strong>Device Identifiers:</strong> Google Advertising ID (GAID), Apple IDFA, and unique vendor IDs.</li>
-            <li><strong>Hardware Information:</strong> Device model, operating system version, CPU architecture, screen resolution, and system language.</li>
-            <li><strong>Coarse Location:</strong> General country- or region-level data derived from IP addresses (not precise GPS location).</li>
-            <li><strong>Ad Engagement & Crash Metrics:</strong> Ad impressions, ad clicks, crash logs, and frame-rate performance data.</li>
+            <li><strong>Google Mobile Ads (AdMob):</strong> Collects device advertising identifiers (Google Advertising ID / GAID), ad interaction metrics (views, clicks), and coarse (approximate) location derived from IP addresses to serve contextual or personalized advertisements.</li>
+            <li><strong>Google Firebase (Authentication & Cloud Firestore):</strong> Manages secure user authentication, cloud saves, and real-time leaderboard data. All data is encrypted in transit using industry-standard TLS/HTTPS protocols.</li>
+            <li><strong>Google Play In-App Billing:</strong> Handles transaction verification, purchase token validation, and entitlement restoration.</li>
         </ul>
 
-        <p>You can inspect the privacy policies of the trusted third-party providers we may utilize:</p>
+        <p>You can review the privacy policies of our third-party infrastructure providers:</p>
         <ul>
-            <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Play Services & Google AdMob</a></li>
-            <li><a href="https://unity3d.com/legal/privacy-policy" target="_blank" rel="noopener">Unity Ads / Unity Technologies</a></li>
-            <li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Google Firebase & Crashlytics</a></li>
+            <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy & Terms</a></li>
+            <li><a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google AdMob Privacy Policy</a></li>
+            <li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Google Firebase Privacy & Security</a></li>
         </ul>
 
-        <h2>4. In-App Purchases & Virtual Items</h2>
-        <p>Our Games may offer optional virtual goods, cosmetics, or multipliers. All financial transactions are handled exclusively by the official platform store (Google Play Billing / Apple App Store). Keneri Studios never handles, processes, or stores your credit card details or banking data. Virtual items have no real-world cash equivalence.</p>
+        <h2>4. Information We Do NOT Collect</h2>
+        <p>We believe in strict data protection. We do not collect or request:</p>
+        <ul>
+            <li>Precise GPS location data.</li>
+            <li>Physical addresses, telephone numbers, or biometric data.</li>
+            <li>Device contacts, text messages (SMS), photos, microphone, or camera access.</li>
+            <li>Credit card numbers, bank details, or financial accounts (handled solely by Google Play).</li>
+        </ul>
+        <p>We do <strong>not</strong> sell, rent, monetize, or trade any player data to third-party data brokers.</p>
 
-        <h2>5. Game Saves & Local Storage</h2>
-        <p>Your game progression, tycoon levels, balance, and unlocked perks are stored locally on your device or synchronized via your platform's secure cloud service (e.g., Google Play Saved Games). Keneri Studios maintains no external copy of your save data.</p>
+        <h2>5. Data Retention & Deletion Rights</h2>
+        <p>We retain cloud save and leaderboard information only as long as you maintain an active account with our services. You have the full right to delete your data at any time:</p>
+        <ul>
+            <li><strong>Local Data:</strong> You can delete all local saves immediately by clearing the app data or uninstalling the application from your device.</li>
+            <li><strong>Cloud Save & Leaderboard Deletion:</strong> To permanently delete your Google account record, cloud saves, and leaderboard entries from our Firebase servers, email us at <a href="mailto:keneristudios@gmail.com">keneristudios@gmail.com</a> with the subject <em>"Data Deletion Request"</em> and your in-game username or registered Google email. We will process and permanently purge your records within 30 business days.</li>
+        </ul>
 
         <h2>6. Children’s Online Privacy (COPPA & GDPR)</h2>
-        <p>Our Games are built for general audiences and are not directed at children under the age of 13 (or under 16 in the European Union). We do not knowingly collect personal data from minors. If a parent or guardian believes data has been collected inadvertently, contact us immediately at <a href="mailto:keneristudios@gmail.com">keneristudios@gmail.com</a>.</p>
+        <p>Our Games are designed for general audiences and are not directed at children under the age of 13 (or under 16 in the European Economic Area). We do not knowingly collect personal data from minors. If a parent or guardian discovers that personal data has been submitted inadvertently, please contact us immediately at <a href="mailto:keneristudios@gmail.com">keneristudios@gmail.com</a> so we can remove the data.</p>
 
         <h2>7. Managing Advertising Preferences & Opt-Outs</h2>
         <p>You have full control over personalized advertising on your mobile device:</p>
         <ul>
             <li><strong>Android:</strong> Go to <em>Settings &gt; Google &gt; Ads &gt; Reset or Delete advertising ID</em>.</li>
-            <li><strong>iOS:</strong> Go to <em>Settings &gt; Privacy &amp; Security &gt; Tracking</em> and toggle app permissions.</li>
+            <li><strong>iOS:</strong> Go to <em>Settings &gt; Privacy &amp; Security &gt; Tracking</em> and toggle app tracking permissions.</li>
         </ul>
 
         <h2>8. Contact the Studio</h2>
-        <p>If you have questions, feedback, or legal inquiries regarding this Privacy Policy, please reach out to our studio desk:</p>
+        <p>If you have questions, feedback, or legal inquiries regarding this Privacy Policy or your data rights, please reach out to our studio desk:</p>
         <p><strong>Studio:</strong> Keneri Studios<br>
+        <strong>Developer:</strong> Wisdom Nwaeze<br>
         <strong>Email:</strong> <a href="mailto:keneristudios@gmail.com">keneristudios@gmail.com</a><br>
         <strong>Website:</strong> <a href="https://keneristudios.github.io/">https://keneristudios.github.io/</a></p>
 
