@@ -7,29 +7,35 @@
     <meta name="description" content="Terms of Service for Keneri Studios, its games, and mobile applications including Degen Empire: Richbro Edition.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-base: #07090e;
-            --bg-card: #0f141f;
-            --bg-card-hover: #161c2b;
-            --canary-gold: #ffd000;
-            --canary-glow: rgba(255, 208, 0, 0.2);
-            --text-main: #f0f6fc;
-            --text-muted: #8b949e;
-            --border-color: #232b3e;
-            --accent-green: #00f59b;
+            --bg-base:     #f8f9fc;
+            --bg-section:  #f1f4f9;
+            --bg-card:     #ffffff;
+            --gold:        #e6a800;
+            --gold-dark:   #b88300;
+            --gold-light:  #ffd000;
+            --gold-bg:     rgba(230,168,0,0.08);
+            --gold-border: rgba(230,168,0,0.3);
+            --text-main:   #0f172a;
+            --text-body:   #334155;
+            --text-muted:  #64748b;
+            --border:      #e2e8f0;
+            --border-dk:   #cbd5e1;
+            --shadow-sm:   0 1px 4px rgba(15,23,42,0.06);
+            --shadow-md:   0 4px 20px rgba(15,23,42,0.08);
         }
-
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background-color: var(--bg-base);
-            color: var(--text-main);
+            color: var(--text-body);
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
         }
 
+        /* NAV */
         nav {
             position: sticky;
             top: 0;
@@ -37,50 +43,38 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 18px 40px;
-            background: rgba(7, 9, 14, 0.92);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color);
+            padding: 0 40px;
+            height: 66px;
+            background: rgba(248,249,252,0.94);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
         }
-
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 1.15rem;
+            gap: 11px;
+            font-size: 1.05rem;
             font-weight: 800;
-            color: var(--canary-gold);
+            color: var(--text-main);
             text-decoration: none;
-            letter-spacing: 1px;
+            letter-spacing: 1.2px;
             font-family: 'Space Grotesk', sans-serif;
         }
-
         .logo-icon {
-            width: 28px;
-            height: 28px;
-            background: var(--canary-gold);
-            border-radius: 6px;
+            width: 32px;
+            height: 32px;
+            background: var(--gold-light);
+            border-radius: 8px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             color: #000;
             font-weight: 900;
-            font-size: 0.9rem;
-            box-shadow: 0 0 15px var(--canary-glow);
+            font-size: 1rem;
         }
-
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            margin-left: 24px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--canary-gold);
-        }
+        .nav-links { display: flex; gap: 24px; align-items: center; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: color .18s; }
+        .nav-links a:hover { color: var(--text-main); }
 
         .container {
             max-width: 840px;
@@ -88,94 +82,68 @@
             padding: 0 24px;
         }
 
-        .policy-header {
-            margin-bottom: 35px;
-        }
-
+        .policy-header { margin-bottom: 35px; }
         .policy-header h1 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.5rem;
+            font-size: 2.6rem;
             font-weight: 900;
-            color: var(--canary-gold);
+            color: var(--text-main);
             letter-spacing: -0.5px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+        }
+        .policy-header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
         }
 
         .meta-box {
             background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-left: 4px solid var(--canary-gold);
-            padding: 20px 26px;
-            border-radius: 10px;
+            border: 1.5px solid var(--border);
+            border-left: 4px solid var(--gold);
+            padding: 22px 26px;
+            border-radius: 12px;
             margin: 25px 0 40px;
+            box-shadow: var(--shadow-sm);
         }
-
-        .meta-box p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 5px;
-        }
-
-        .meta-box strong {
-            color: var(--text-main);
-        }
+        .meta-box p { color: var(--text-body); font-size: 0.95rem; margin-bottom: 6px; }
+        .meta-box p:last-child { margin-bottom: 0; }
+        .meta-box strong { color: var(--text-main); }
 
         h2 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.4rem;
+            font-size: 1.35rem;
             color: var(--text-main);
             margin-top: 40px;
             margin-bottom: 14px;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border);
             padding-bottom: 8px;
         }
-
-        p {
-            color: #a9b3c1;
-            font-size: 0.98rem;
-            margin-bottom: 16px;
-        }
-
-        ul {
-            margin-left: 25px;
-            margin-bottom: 22px;
-        }
-
-        li {
-            color: #a9b3c1;
-            font-size: 0.98rem;
-            margin-bottom: 8px;
-        }
+        p { color: var(--text-body); font-size: 0.97rem; margin-bottom: 16px; }
+        ul { margin-left: 24px; margin-bottom: 22px; }
+        li { color: var(--text-body); font-size: 0.96rem; margin-bottom: 8px; }
 
         .disclaimer-box {
-            background: rgba(255, 208, 0, 0.06);
-            border: 1px solid rgba(255, 208, 0, 0.3);
-            border-radius: 10px;
-            padding: 22px;
+            background: var(--gold-bg);
+            border: 1.5px solid var(--gold-border);
+            border-radius: 12px;
+            padding: 22px 24px;
             margin: 25px 0;
         }
-
         .disclaimer-box h3 {
-            color: var(--canary-gold);
+            color: var(--gold-dark);
             font-size: 1.1rem;
             margin-bottom: 8px;
             font-family: 'Space Grotesk', sans-serif;
         }
-
         .disclaimer-box p {
-            color: #e6edf3;
+            color: var(--text-body);
             margin-bottom: 0;
-            font-size: 0.92rem;
+            font-size: 0.93rem;
+            line-height: 1.6;
         }
 
-        a {
-            color: var(--canary-gold);
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
+        a { color: var(--gold-dark); text-decoration: none; font-weight: 600; }
+        a:hover { text-decoration: underline; }
 
         .btn-back {
             display: inline-flex;
@@ -183,7 +151,7 @@
             gap: 8px;
             background: var(--bg-card);
             color: var(--text-main);
-            border: 1px solid var(--border-color);
+            border: 1.5px solid var(--border-dk);
             padding: 12px 24px;
             border-radius: 8px;
             text-decoration: none;
@@ -191,26 +159,29 @@
             font-weight: 700;
             margin-top: 40px;
             transition: all 0.2s;
+            font-family: 'Space Grotesk', sans-serif;
         }
-
         .btn-back:hover {
-            border-color: var(--canary-gold);
-            color: var(--canary-gold);
+            border-color: var(--gold);
+            color: var(--gold-dark);
             transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
         }
 
         footer {
+            background: #0f172a;
+            border-top: 1px solid #1e293b;
+            padding: 40px 20px;
             text-align: center;
+            color: #64748b;
+            font-size: 0.88rem;
             margin-top: 70px;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            border-top: 1px solid var(--border-color);
-            padding: 35px 20px;
         }
+        footer a { color: var(--gold-light); }
 
         @media (max-width: 768px) {
-            nav { padding: 16px 20px; }
-            .policy-header h1 { font-size: 2rem; }
+            nav { padding: 0 20px; }
+            .policy-header h1 { font-size: 2.1rem; }
         }
     </style>
 </head>
@@ -232,7 +203,7 @@
     <div class="container">
         <div class="policy-header">
             <h1>Terms of Service</h1>
-            <p>Master Terms and Conditions governing all applications and services published by Keneri Studios.</p>
+            <p>Master Terms and Conditions governing all applications, games, and services published by Keneri Studios.</p>
         </div>
 
         <div class="meta-box">
@@ -243,15 +214,15 @@
         </div>
 
         <h2>1. Acceptance of Terms</h2>
-        <p>By downloading, installing, accessing, or playing any game or application published by <strong>Keneri Studios</strong> (referred to as "we", "us", or "our"), you agree to be bound by these Terms of Service. If you do not agree with these Terms, you must uninstall and discontinue using our applications immediately.</p>
+        <p>By downloading, installing, accessing, or using any game or application published by <strong>Keneri Studios</strong> (referred to as "we", "us", or "our"), you agree to be bound by these Terms of Service. If you do not agree with these Terms, you must uninstall and discontinue using our applications immediately.</p>
 
-        <h2>2. Virtual Currency & Simulation Disclaimer</h2>
+        <h2>2. Virtual Currency &amp; Simulation Disclaimer</h2>
         <div class="disclaimer-box">
             <h3>⚠️ Critical Financial Simulation Notice</h3>
             <p>Our games—including <em>Degen Empire: Richbro Edition</em>—are satirical business simulation and tycoon games created purely for entertainment and edutainment. All in-game money, cash balances, stocks, cryptocurrencies, sports clubs, luxury items, and businesses are <strong>strictly virtual simulation items</strong>. They have <strong>zero real-world monetary value</strong> and cannot be redeemed, transferred, refunded for cash, or traded outside of the game. Our titles do not constitute real-money gambling, banking, or financial investment advice.</p>
         </div>
 
-        <h2>3. In-App Purchases & VIP Memberships</h2>
+        <h2>3. In-App Purchases &amp; VIP Memberships</h2>
         <p>Our applications may offer optional virtual goods, multipliers, or VIP subscriptions (e.g., VIP Monthly, Yearly, Lifetime):</p>
         <ul>
             <li><strong>Billing Processor:</strong> All monetary transactions are processed securely through the official platform stores (Google Play Store or Apple App Store). We do not collect or store your payment cards.</li>
@@ -259,7 +230,7 @@
             <li><strong>Refunds:</strong> All refund requests are governed directly by the refund policies of the platform where the purchase was made (e.g., Google Play refund policies).</li>
         </ul>
 
-        <h2>4. User Conduct & Fair Play</h2>
+        <h2>4. User Conduct &amp; Fair Play</h2>
         <p>To ensure a competitive and fair experience on our global leaderboards (e.g., Forbes Leaderboard):</p>
         <ul>
             <li>You agree not to modify game memory, inject cheat tools, exploit bugs to artificially inflate fortune scores, or attack our backend infrastructure.</li>
@@ -270,13 +241,13 @@
         <h2>5. Intellectual Property Rights</h2>
         <p>All trademarks, game logos, audio assets, visual artwork, codebases, and brand designs associated with Keneri Studios and <em>Degen Empire: Richbro Edition</em> are the exclusive intellectual property of Keneri Studios and its founder. You may not copy, reverse engineer, distribute, or create derivative works without prior written authorization.</p>
 
-        <h2>6. Cloud Saves & Service Availability</h2>
-        <p>While we endeavor to provide seamless cloud backup via Google Sign-In and Firebase, game services are provided on an "AS IS" and "AS AVAILABLE" basis. We are not liable for accidental progress loss resulting from hardware failure, platform outages, or unauthorized third-party tampering.</p>
+        <h2>6. Cloud Saves &amp; Service Availability</h2>
+        <p>While we endeavor to provide seamless cloud backup via Google Sign-In and Firebase, application services are provided on an "AS IS" and "AS AVAILABLE" basis. We are not liable for accidental progress loss resulting from hardware failure, platform outages, or unauthorized third-party tampering.</p>
 
         <h2>7. Limitation of Liability</h2>
-        <p>To the fullest extent permitted by applicable law, Keneri Studios shall not be liable for any indirect, incidental, punitive, or consequential damages arising out of your access or inability to access our games.</p>
+        <p>To the fullest extent permitted by applicable law, Keneri Studios shall not be liable for any indirect, incidental, punitive, or consequential damages arising out of your access or inability to access our games and applications.</p>
 
-        <h2>8. Termination & Modification</h2>
+        <h2>8. Termination &amp; Modification</h2>
         <p>We reserve the right to modify these Terms of Service at any time. Material updates will be reflected on this page with an updated effective date. Continued use of our applications following any updates constitutes your acceptance of the revised Terms.</p>
 
         <h2>9. Contact Information</h2>
@@ -286,11 +257,11 @@
         <strong>Website:</strong> <a href="https://keneristudios.github.io/">https://keneristudios.github.io/</a></p>
 
         <a href="index.html" class="btn-back">&larr; Return to Keneri Studios Home</a>
-
-        <footer>
-            <p>&copy; 2026 Keneri Studios. All rights reserved.</p>
-        </footer>
     </div>
+
+    <footer>
+        <p>&copy; 2026 <strong>Keneri Studios</strong>. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>

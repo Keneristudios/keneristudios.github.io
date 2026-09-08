@@ -3,47 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Master Privacy Policy | Keneri Studios</title>
-    <meta name="description" content="Master Privacy Policy for Keneri Studios and all published games including Degen Empire: Richbro Edition.">
+    <title>Privacy Policy | Keneri Studios</title>
+    <meta name="description" content="Master Privacy Policy for Keneri Studios and all published games and apps including Degen Empire: Richbro Edition.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-base: #0a0d14;
-            --bg-card: #121824;
-            --canary-gold: #ffd000;
-            --text-main: #f0f6fc;
-            --text-muted: #8b949e;
-            --border-color: #232b3e;
+            --bg-base:     #f8f9fc;
+            --bg-section:  #f1f4f9;
+            --bg-card:     #ffffff;
+            --gold:        #e6a800;
+            --gold-dark:   #b88300;
+            --gold-light:  #ffd000;
+            --gold-bg:     rgba(230,168,0,0.08);
+            --gold-border: rgba(230,168,0,0.3);
+            --text-main:   #0f172a;
+            --text-body:   #334155;
+            --text-muted:  #64748b;
+            --border:      #e2e8f0;
+            --border-dk:   #cbd5e1;
+            --shadow-sm:   0 1px 4px rgba(15,23,42,0.06);
+            --shadow-md:   0 4px 20px rgba(15,23,42,0.08);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-body);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: var(--bg-base); color: var(--text-main); line-height: 1.7; }
-        
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 40px; background: rgba(10, 13, 20, 0.95); border-bottom: 1px solid var(--border-color); }
-        .logo { display: flex; align-items: center; gap: 10px; font-size: 1.15rem; font-weight: 800; color: var(--canary-gold); text-decoration: none; letter-spacing: 1px; }
-        .logo-icon { width: 24px; height: 24px; background: var(--canary-gold); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: #000; font-weight: 900; font-size: 0.8rem; }
-        .nav-links a { color: var(--text-muted); text-decoration: none; margin-left: 20px; font-size: 0.9rem; font-weight: 500; }
-        .nav-links a:hover { color: var(--canary-gold); }
+        /* NAV */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            height: 66px;
+            background: rgba(248,249,252,0.94);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--text-main);
+            text-decoration: none;
+            letter-spacing: 1.2px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--gold-light);
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-weight: 900;
+            font-size: 1rem;
+        }
+        .nav-links { display: flex; gap: 24px; align-items: center; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: color .18s; }
+        .nav-links a:hover { color: var(--text-main); }
 
-        .container { max-width: 820px; margin: 40px auto; padding: 0 20px; }
-        
-        .policy-header { margin-bottom: 30px; }
-        .policy-header h1 { font-size: 2.4rem; font-weight: 900; color: var(--canary-gold); margin-bottom: 10px; }
-        
-        .meta-box { background: var(--bg-card); border: 1px solid var(--border-color); border-left: 4px solid var(--canary-gold); padding: 18px 24px; border-radius: 8px; margin: 25px 0 35px; }
-        .meta-box p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 4px; }
+        .container {
+            max-width: 820px;
+            margin: 50px auto 80px;
+            padding: 0 24px;
+        }
+
+        .policy-header { margin-bottom: 35px; }
+        .policy-header h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+        .policy-header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .meta-box {
+            background: var(--bg-card);
+            border: 1.5px solid var(--border);
+            border-left: 4px solid var(--gold);
+            padding: 22px 26px;
+            border-radius: 12px;
+            margin: 25px 0 40px;
+            box-shadow: var(--shadow-sm);
+        }
+        .meta-box p { color: var(--text-body); font-size: 0.95rem; margin-bottom: 6px; }
+        .meta-box p:last-child { margin-bottom: 0; }
         .meta-box strong { color: var(--text-main); }
 
-        h2 { font-size: 1.35rem; color: var(--text-main); margin-top: 35px; margin-bottom: 12px; border-bottom: 1px solid var(--border-color); padding-bottom: 6px; }
-        p { color: #a9b3c1; font-size: 0.98rem; margin-bottom: 15px; }
-        ul { margin-left: 25px; margin-bottom: 20px; }
-        li { color: #a9b3c1; font-size: 0.98rem; margin-bottom: 8px; }
-        a { color: var(--canary-gold); text-decoration: none; }
+        h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.35rem;
+            color: var(--text-main);
+            margin-top: 40px;
+            margin-bottom: 14px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 8px;
+        }
+        p { color: var(--text-body); font-size: 0.97rem; margin-bottom: 16px; }
+        ul { margin-left: 24px; margin-bottom: 22px; }
+        li { color: var(--text-body); font-size: 0.96rem; margin-bottom: 8px; }
+        a { color: var(--gold-dark); text-decoration: none; font-weight: 600; }
         a:hover { text-decoration: underline; }
 
-        .btn-back { display: inline-flex; align-items: center; gap: 8px; background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border-color); padding: 10px 20px; border-radius: 6px; text-decoration: none; font-size: 0.9rem; font-weight: 600; margin-top: 30px; transition: border-color 0.2s; }
-        .btn-back:hover { border-color: var(--canary-gold); color: var(--canary-gold); }
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-card);
+            color: var(--text-main);
+            border: 1.5px solid var(--border-dk);
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 700;
+            margin-top: 40px;
+            transition: all 0.2s;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .btn-back:hover {
+            border-color: var(--gold);
+            color: var(--gold-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
 
-        footer { text-align: center; margin-top: 60px; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border-color); padding: 30px 20px; }
+        footer {
+            background: #0f172a;
+            border-top: 1px solid #1e293b;
+            padding: 40px 20px;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.88rem;
+            margin-top: 70px;
+        }
+        footer a { color: var(--gold-light); }
+
+        @media (max-width: 768px) {
+            nav { padding: 0 20px; }
+            .policy-header h1 { font-size: 2.1rem; }
+        }
     </style>
 </head>
 <body>
@@ -55,7 +173,8 @@
         </a>
         <div class="nav-links">
             <a href="index.html">Home</a>
-            <a href="index.html#games">Games</a>
+            <a href="degen-empire.html">Degen Empire</a>
+            <a href="terms.html">Terms</a>
             <a href="mailto:keneristudios@gmail.com">Contact</a>
         </div>
     </nav>
@@ -63,41 +182,41 @@
     <div class="container">
         <div class="policy-header">
             <h1>Master Privacy Policy</h1>
-            <p>Transparency, security, and player-first privacy standards.</p>
+            <p>Transparency, security, and player-first privacy standards across all products.</p>
         </div>
 
         <div class="meta-box">
             <p><strong>Publisher / Developer:</strong> Keneri Studios</p>
-            <p><strong>Applies to:</strong> All games, prototypes, and services (including <em>Degen Empire: Richbro Edition</em>)</p>
+            <p><strong>Applies to:</strong> All games, mobile applications, and web services (including <em>Degen Empire: Richbro Edition</em>)</p>
             <p><strong>Official Contact:</strong> <a href="mailto:keneristudios@gmail.com">keneristudios@gmail.com</a></p>
             <p><strong>Effective Date:</strong> September 2026</p>
         </div>
 
         <h2>1. Scope of This Policy</h2>
-        <p>This Master Privacy Policy applies to all mobile games, software applications, and web services published by <strong>Keneri Studios</strong> (collectively, "our Games" or "the Services"). By downloading, testing, or playing any of our titles—including pre-release closed betas—you acknowledge the practices outlined herein.</p>
+        <p>This Master Privacy Policy applies to all mobile games, software applications, and web services published by <strong>Keneri Studios</strong> (collectively, "our Games, Apps, and Services"). By downloading, testing, or using any of our titles—including pre-release closed betas—you acknowledge the practices outlined herein.</p>
 
-        <h2>2. Data We Collect & How We Use It</h2>
-        <p>Keneri Studios adheres strictly to data minimization principles. We only collect the minimal information necessary to deliver core game features:</p>
+        <h2>2. Data We Collect &amp; How We Use It</h2>
+        <p>Keneri Studios adheres strictly to data minimization principles. We only collect the minimal information necessary to deliver core application functionality:</p>
         <ul>
-            <li><strong>Account & Authentication Information (Optional):</strong> If you choose to connect with <strong>Google Sign-In</strong> to back up your progress across devices, we receive your Google account email address, display name, and unique User ID (UID) via Google Firebase Authentication. This information is used strictly for account management and cloud save synchronization.</li>
-            <li><strong>In-Game Profile & Leaderboard:</strong> Your chosen in-game alias, avatar, and total empire fortune may be uploaded to our public Forbes Leaderboard powered by Google Cloud Firestore.</li>
+            <li><strong>Account &amp; Authentication Information (Optional):</strong> If you choose to connect with <strong>Google Sign-In</strong> to back up your progress across devices, we receive your Google account email address, display name, and unique User ID (UID) via Google Firebase Authentication. This information is used strictly for account management and cloud save synchronization.</li>
+            <li><strong>In-Game Profile &amp; Leaderboard:</strong> Your chosen alias, avatar, and total simulated fortune may be uploaded to our public Forbes Leaderboard powered by Google Cloud Firestore.</li>
             <li><strong>Purchase History:</strong> If you purchase an optional VIP pass or virtual package, we process the transaction receipt and product identifier (SKU) via Google Play Billing to activate your benefits and restore purchases. We never receive or store your payment card or banking information.</li>
-            <li><strong>Gameplay & Local Storage:</strong> Game progress, assets, vehicles, and portfolio data are stored locally on your device (encrypted via MMKV) and mirrored to secure Google Cloud Firestore when cloud sync is active.</li>
+            <li><strong>Gameplay &amp; Local Storage:</strong> Game progress, assets, vehicles, and portfolio data are stored locally on your device (encrypted via MMKV) and mirrored to secure Google Cloud Firestore when cloud sync is active.</li>
         </ul>
 
-        <h2>3. Third-Party Services & Automated SDK Collection</h2>
-        <p>To support game stability, deliver optional rewarded advertising, and maintain leaderboards, our Games integrate trusted third-party Software Development Kits (SDKs). These third parties may automatically collect telemetry and technical identifiers:</p>
+        <h2>3. Third-Party Services &amp; Automated SDK Collection</h2>
+        <p>To support application stability, deliver optional rewarded advertising, and maintain leaderboards, our applications integrate trusted third-party Software Development Kits (SDKs). These third parties may automatically collect telemetry and technical identifiers:</p>
         <ul>
             <li><strong>Google Mobile Ads (AdMob):</strong> Collects device advertising identifiers (Google Advertising ID / GAID), ad interaction metrics (views, clicks), and coarse (approximate) location derived from IP addresses to serve contextual or personalized advertisements.</li>
-            <li><strong>Google Firebase (Authentication & Cloud Firestore):</strong> Manages secure user authentication, cloud saves, and real-time leaderboard data. All data is encrypted in transit using industry-standard TLS/HTTPS protocols.</li>
+            <li><strong>Google Firebase (Authentication &amp; Cloud Firestore):</strong> Manages secure user authentication, cloud saves, and real-time leaderboard data. All data is encrypted in transit using industry-standard TLS/HTTPS protocols.</li>
             <li><strong>Google Play In-App Billing:</strong> Handles transaction verification, purchase token validation, and entitlement restoration.</li>
         </ul>
 
         <p>You can review the privacy policies of our third-party infrastructure providers:</p>
         <ul>
-            <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy & Terms</a></li>
+            <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy &amp; Terms</a></li>
             <li><a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google AdMob Privacy Policy</a></li>
-            <li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Google Firebase Privacy & Security</a></li>
+            <li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Google Firebase Privacy &amp; Security</a></li>
         </ul>
 
         <h2>4. Information We Do NOT Collect</h2>
@@ -108,19 +227,19 @@
             <li>Device contacts, text messages (SMS), photos, microphone, or camera access.</li>
             <li>Credit card numbers, bank details, or financial accounts (handled solely by Google Play).</li>
         </ul>
-        <p>We do <strong>not</strong> sell, rent, monetize, or trade any player data to third-party data brokers.</p>
+        <p>We do <strong>not</strong> sell, rent, monetize, or trade any player or user data to third-party data brokers.</p>
 
-        <h2>5. Data Retention & Deletion Rights</h2>
+        <h2>5. Data Retention &amp; Deletion Rights</h2>
         <p>We retain cloud save and leaderboard information only as long as you maintain an active account with our services. You have the full right to delete your data at any time:</p>
         <ul>
-            <li><strong>Local Data:</strong> You can delete all local saves immediately by clearing the app data or uninstalling the application from your device.</li>
-            <li><strong>Cloud Save & Leaderboard Deletion:</strong> To permanently delete your Google account record, cloud saves, and leaderboard entries from our Firebase servers, email us at <a href="mailto:keneristudios@gmail.com">keneristudios@gmail.com</a> with the subject <em>"Data Deletion Request"</em> and your in-game username or registered Google email. We will process and permanently purge your records within 30 business days.</li>
+            <li><strong>Local Data:</strong> You can delete all local data immediately by clearing app storage or uninstalling the application from your device.</li>
+            <li><strong>Cloud Save &amp; Leaderboard Deletion:</strong> To permanently delete your Google account record, cloud saves, and leaderboard entries from our Firebase servers, email us at <a href="mailto:keneristudios@gmail.com">keneristudios@gmail.com</a> with the subject <em>"Data Deletion Request"</em> and your in-app alias or registered Google email. We will process and permanently purge your records within 30 business days.</li>
         </ul>
 
-        <h2>6. Children’s Online Privacy (COPPA & GDPR)</h2>
-        <p>Our Games are designed for general audiences and are not directed at children under the age of 13 (or under 16 in the European Economic Area). We do not knowingly collect personal data from minors. If a parent or guardian discovers that personal data has been submitted inadvertently, please contact us immediately at <a href="mailto:keneristudios@gmail.com">keneristudios@gmail.com</a> so we can remove the data.</p>
+        <h2>6. Children’s Online Privacy (COPPA &amp; GDPR)</h2>
+        <p>Our applications are designed for general audiences and are not directed at children under the age of 13 (or under 16 in the European Economic Area). We do not knowingly collect personal data from minors. If a parent or guardian discovers that personal data has been submitted inadvertently, please contact us immediately at <a href="mailto:keneristudios@gmail.com">keneristudios@gmail.com</a> so we can remove the data.</p>
 
-        <h2>7. Managing Advertising Preferences & Opt-Outs</h2>
+        <h2>7. Managing Advertising Preferences &amp; Opt-Outs</h2>
         <p>You have full control over personalized advertising on your mobile device:</p>
         <ul>
             <li><strong>Android:</strong> Go to <em>Settings &gt; Google &gt; Ads &gt; Reset or Delete advertising ID</em>.</li>
@@ -128,18 +247,18 @@
         </ul>
 
         <h2>8. Contact the Studio</h2>
-        <p>If you have questions, feedback, or legal inquiries regarding this Privacy Policy or your data rights, please reach out to our studio desk:</p>
+        <p>If you have questions, feedback, or legal inquiries regarding this Privacy Policy or your data rights, please reach out directly:</p>
         <p><strong>Studio:</strong> Keneri Studios<br>
         <strong>Developer:</strong> Wisdom Nwaeze<br>
         <strong>Email:</strong> <a href="mailto:keneristudios@gmail.com">keneristudios@gmail.com</a><br>
         <strong>Website:</strong> <a href="https://keneristudios.github.io/">https://keneristudios.github.io/</a></p>
 
         <a href="index.html" class="btn-back">&larr; Return to Keneri Studios Home</a>
-
-        <footer>
-            <p>&copy; 2026 Keneri Studios. All rights reserved.</p>
-        </footer>
     </div>
+
+    <footer>
+        <p>&copy; 2026 <strong>Keneri Studios</strong>. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
