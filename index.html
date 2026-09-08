@@ -3,260 +3,885 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keneri Studios | Smart Gaming & Tycoon Simulations</title>
-    <meta name="description" content="Keneri Studios creates addictive, edutainment-driven mobile tycoon games and simulation experiences. Play Degen Empire: Richbro Edition.">
+    <title>Keneri Studios | Next-Gen Smart Gaming & Tycoon Simulations</title>
+    <meta name="description" content="Keneri Studios architects next-generation smart games, edutainment systems, and high-velocity mobile tycoon simulations. Home of Degen Empire: Richbro Edition.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-base: #0a0d14;
-            --bg-card: #121824;
-            --bg-card-hover: #192132;
+            --bg-base: #07090e;
+            --bg-card: #0e131d;
+            --bg-card-glass: rgba(14, 19, 29, 0.75);
+            --bg-card-hover: #151d2c;
             --canary-gold: #ffd000;
-            --canary-glow: rgba(255, 208, 0, 0.25);
+            --canary-glow: rgba(255, 208, 0, 0.3);
+            --canary-muted: rgba(255, 208, 0, 0.12);
             --text-main: #f0f6fc;
             --text-muted: #8b949e;
-            --border-color: #232b3e;
-            --accent-green: #238636;
+            --text-sub: #cbd5e1;
+            --border-color: #1e2638;
+            --border-glow: rgba(255, 208, 0, 0.25);
+            --accent-green: #00f59b;
+            --accent-cyan: #00d2ff;
+            --accent-purple: #9d4edd;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: var(--bg-base); color: var(--text-main); line-height: 1.6; }
-        
-        /* Navigation */
-        nav { position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 18px 40px; background: rgba(10, 13, 20, 0.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color); }
-        .logo { display: flex; align-items: center; gap: 10px; font-size: 1.25rem; font-weight: 800; color: var(--canary-gold); text-decoration: none; letter-spacing: 1px; }
-        .logo-icon { width: 26px; height: 26px; background: var(--canary-gold); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: #000; font-weight: 900; font-size: 0.85rem; }
-        .nav-links { display: flex; gap: 24px; align-items: center; }
-        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s; }
-        .nav-links a:hover { color: var(--canary-gold); }
-        .nav-cta { background: var(--canary-gold); color: #000 !important; padding: 8px 16px; border-radius: 6px; font-weight: 700 !important; transition: opacity 0.2s; }
-        .nav-cta:hover { opacity: 0.9; }
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
 
-        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        /* Subtle Ambient Glow */
+        .ambient-glow {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 1200px;
+            height: 500px;
+            background: radial-gradient(circle at 50% 10%, rgba(255, 208, 0, 0.08) 0%, rgba(0, 210, 255, 0.03) 40%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 40px;
+            background: rgba(7, 9, 14, 0.88);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--canary-gold);
+            text-decoration: none;
+            letter-spacing: 1.5px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .logo-icon {
+            width: 30px;
+            height: 30px;
+            background: var(--canary-gold);
+            border-radius: 7px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-weight: 900;
+            font-size: 0.95rem;
+            box-shadow: 0 0 16px var(--canary-glow);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--canary-gold);
+        }
+
+        .nav-cta {
+            background: var(--canary-gold);
+            color: #000 !important;
+            padding: 9px 20px;
+            border-radius: 7px;
+            font-weight: 800 !important;
+            font-size: 0.88rem !important;
+            letter-spacing: 0.5px;
+            box-shadow: 0 0 15px var(--canary-glow);
+            transition: all 0.2s ease;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 22px rgba(255, 208, 0, 0.5);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
 
         /* Hero Section */
-        .hero { text-align: center; padding: 90px 20px 70px; }
-        .hero-badge { display: inline-block; background: rgba(255, 208, 0, 0.1); border: 1px solid rgba(255, 208, 0, 0.3); color: var(--canary-gold); padding: 6px 16px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 24px; }
-        .hero h1 { font-size: 3.4rem; line-height: 1.15; font-weight: 900; margin-bottom: 20px; letter-spacing: -1px; }
-        .hero h1 span { color: var(--canary-gold); text-shadow: 0 0 35px var(--canary-glow); }
-        .hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 680px; margin: 0 auto 35px; }
-        .hero-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .hero {
+            text-align: center;
+            padding: 100px 20px 70px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--canary-muted);
+            border: 1px solid rgba(255, 208, 0, 0.35);
+            color: var(--canary-gold);
+            padding: 7px 18px;
+            border-radius: 50px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 28px;
+        }
+
+        .hero-badge span {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 8px var(--accent-green);
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.8rem;
+            line-height: 1.12;
+            font-weight: 900;
+            margin-bottom: 24px;
+            letter-spacing: -1.5px;
+        }
+
+        .hero h1 span.highlight {
+            color: var(--canary-gold);
+            text-shadow: 0 0 40px var(--canary-glow);
+        }
+
+        .hero p {
+            font-size: 1.22rem;
+            color: var(--text-sub);
+            max-width: 720px;
+            margin: 0 auto 40px;
+            font-weight: 400;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
 
         /* Buttons */
-        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 13px 28px; border-radius: 8px; font-size: 1rem; font-weight: 700; text-decoration: none; transition: transform 0.15s ease, box-shadow 0.15s ease; cursor: pointer; }
-        .btn-primary { background: var(--canary-gold); color: #000; box-shadow: 0 4px 20px var(--canary-glow); }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(255, 208, 0, 0.4); }
-        .btn-secondary { background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border-color); }
-        .btn-secondary:hover { background: var(--bg-card-hover); border-color: var(--canary-gold); }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 30px;
+            border-radius: 8px;
+            font-size: 0.98rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            font-family: 'Space Grotesk', sans-serif;
+        }
 
-        /* Section Global */
-        section { padding: 60px 0; }
-        .section-header { text-align: center; margin-bottom: 45px; }
-        .section-tag { color: var(--canary-gold); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
-        .section-title { font-size: 2.2rem; font-weight: 800; margin-top: 5px; }
+        .btn-primary {
+            background: var(--canary-gold);
+            color: #000;
+            box-shadow: 0 4px 25px var(--canary-glow);
+        }
 
-        /* The Canary Principle (Manifesto) */
-        .principles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .principle-card { background: var(--bg-card); border: 1px solid var(--border-color); padding: 30px; border-radius: 12px; transition: border-color 0.2s; }
-        .principle-card:hover { border-color: var(--canary-gold); }
-        .principle-icon { font-size: 2rem; margin-bottom: 15px; }
-        .principle-card h3 { font-size: 1.3rem; margin-bottom: 10px; color: var(--text-main); }
-        .principle-card p { color: var(--text-muted); font-size: 0.95rem; }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(255, 208, 0, 0.5);
+        }
 
-        /* Featured Game Card */
-        .game-spotlight { background: linear-gradient(145deg, var(--bg-card) 0%, #0d121c 100%); border: 1px solid var(--border-color); border-radius: 16px; padding: 40px; display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: center; }
-        .game-art { background: #000; border-radius: 12px; height: 260px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 2px dashed #2a344a; padding: 20px; text-align: center; }
-        .game-art-title { font-size: 1.8rem; font-weight: 900; color: var(--canary-gold); }
-        .game-art-subtitle { color: var(--text-muted); font-size: 0.85rem; margin-top: 5px; }
-        .badge-closed-beta { display: inline-block; background: rgba(35, 134, 54, 0.2); border: 1px solid var(--accent-green); color: #3fb950; font-size: 0.75rem; font-weight: 700; padding: 4px 10px; border-radius: 20px; text-transform: uppercase; margin-bottom: 12px; }
-        .game-info h3 { font-size: 2rem; font-weight: 800; margin-bottom: 10px; }
-        .game-info p { color: var(--text-muted); font-size: 1rem; margin-bottom: 20px; }
-        .game-meta { display: flex; gap: 15px; margin-bottom: 25px; font-size: 0.85rem; color: #a0aec0; }
+        .btn-secondary {
+            background: var(--bg-card);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
 
-        /* Pipeline / Lab */
-        .pipeline-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-        .pipeline-card { background: var(--bg-card); border: 1px solid var(--border-color); padding: 25px; border-radius: 10px; opacity: 0.85; }
-        .pipeline-tag { font-size: 0.75rem; font-weight: 700; color: var(--canary-gold); text-transform: uppercase; }
-        .pipeline-card h4 { font-size: 1.2rem; margin: 8px 0 6px; }
-        .pipeline-card p { font-size: 0.85rem; color: var(--text-muted); }
+        .btn-secondary:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--canary-gold);
+            transform: translateY(-2px);
+        }
 
-        /* Contact & Socials */
-        .contact-box { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 40px; text-align: center; }
-        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 30px; text-align: left; }
-        .contact-item { background: #0c1018; border: 1px solid var(--border-color); padding: 20px; border-radius: 10px; text-decoration: none; color: var(--text-main); transition: border-color 0.2s, transform 0.15s; }
-        .contact-item:hover { border-color: var(--canary-gold); transform: translateY(-2px); }
-        .contact-item-label { font-size: 0.75rem; color: var(--canary-gold); text-transform: uppercase; font-weight: 700; }
-        .contact-item-val { font-size: 1.05rem; font-weight: 600; margin-top: 4px; }
-        .contact-item-sub { font-size: 0.8rem; color: var(--text-muted); margin-top: 2px; }
+        /* Stats Bar */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            background: var(--bg-card-glass);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 30px 20px;
+            margin: 40px 0 80px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--canary-gold);
+        }
+
+        .stat-item p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        /* Sections */
+        section {
+            padding: 70px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-tag {
+            color: var(--canary-gold);
+            font-size: 0.82rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-top: 6px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 620px;
+            margin: 10px auto 0;
+        }
+
+        /* Studio Pillars */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .pillar-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 34px 28px;
+            border-radius: 14px;
+            transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pillar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--canary-gold), transparent);
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+
+        .pillar-card:hover {
+            border-color: var(--border-glow);
+            transform: translateY(-4px);
+            background: var(--bg-card-hover);
+        }
+
+        .pillar-card:hover::before {
+            opacity: 1;
+        }
+
+        .pillar-icon {
+            width: 52px;
+            height: 52px;
+            background: var(--canary-muted);
+            border: 1px solid rgba(255, 208, 0, 0.3);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 22px;
+        }
+
+        .pillar-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .pillar-card p {
+            color: var(--text-muted);
+            font-size: 0.93rem;
+            line-height: 1.6;
+        }
+
+        /* Flagship Game Spotlight Card */
+        .game-spotlight {
+            background: linear-gradient(145deg, #101522 0%, #090c13 100%);
+            border: 1px solid rgba(255, 208, 0, 0.3);
+            border-radius: 20px;
+            padding: 48px;
+            display: grid;
+            grid-template-columns: 1.1fr 1.3fr;
+            gap: 45px;
+            align-items: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .game-art-box {
+            background: #06080d;
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            padding: 35px 25px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .art-tag {
+            background: rgba(255, 208, 0, 0.15);
+            color: var(--canary-gold);
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .game-art-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--canary-gold);
+            line-height: 1.1;
+        }
+
+        .game-art-sub {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 6px;
+            font-weight: 600;
+        }
+
+        .game-pills {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 24px;
+        }
+
+        .game-pill {
+            background: #141b28;
+            border: 1px solid #232b3e;
+            color: #ccd5e1;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        .badge-live {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(0, 245, 155, 0.12);
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            font-size: 0.78rem;
+            font-weight: 800;
+            padding: 5px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+        }
+
+        .game-info h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.3rem;
+            font-weight: 900;
+            margin-bottom: 14px;
+            line-height: 1.15;
+        }
+
+        .game-info p {
+            color: var(--text-sub);
+            font-size: 1.02rem;
+            margin-bottom: 24px;
+        }
+
+        .game-features-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .game-features-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #d1d9e0;
+            font-size: 0.92rem;
+            margin-bottom: 10px;
+        }
+
+        .game-features-list li span {
+            color: var(--canary-gold);
+            font-weight: 800;
+        }
+
+        /* Innovation Lab / Pipeline */
+        .pipeline-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 22px;
+        }
+
+        .pipeline-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 28px;
+            border-radius: 12px;
+            transition: border-color 0.2s ease;
+        }
+
+        .pipeline-card:hover {
+            border-color: #34425e;
+        }
+
+        .pipeline-status {
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-cyan);
+            margin-bottom: 8px;
+        }
+
+        .pipeline-card h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .pipeline-card p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+        }
+
+        /* Tech Stack */
+        .tech-grid {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .tech-badge {
+            background: #0f1420;
+            border: 1px solid var(--border-color);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #ccd5e1;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Contact Box */
+        .contact-box {
+            background: linear-gradient(145deg, var(--bg-card) 0%, #0b0f17 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            padding: 50px 35px;
+            text-align: center;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin-top: 35px;
+            text-align: left;
+        }
+
+        .contact-item {
+            background: #070a10;
+            border: 1px solid var(--border-color);
+            padding: 22px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-item:hover {
+            border-color: var(--canary-gold);
+            transform: translateY(-3px);
+        }
+
+        .contact-item-label {
+            font-size: 0.75rem;
+            color: var(--canary-gold);
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 1px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .contact-item-val {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-top: 6px;
+        }
+
+        .contact-item-sub {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-top: 3px;
+        }
 
         /* Footer */
-        footer { border-top: 1px solid var(--border-color); padding: 40px 20px; text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-top: 60px; }
-        footer a { color: var(--canary-gold); text-decoration: none; }
-        footer a:hover { text-decoration: underline; }
-        .footer-nav { margin: 15px 0; }
-        .footer-nav a { margin: 0 12px; color: var(--text-muted); }
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 50px 20px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 80px;
+            background: #05070a;
+        }
 
-        @media (max-width: 768px) {
-            nav { padding: 15px 20px; }
+        footer a {
+            color: var(--canary-gold);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-nav {
+            margin: 20px 0;
+        }
+
+        .footer-nav a {
+            margin: 0 14px;
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            font-weight: 500;
+        }
+
+        .footer-nav a:hover {
+            color: var(--canary-gold);
+        }
+
+        .legal-notice {
+            max-width: 680px;
+            margin: 20px auto 0;
+            font-size: 0.78rem;
+            color: #64748b;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 900px) {
+            .hero h1 { font-size: 2.8rem; }
+            .game-spotlight { grid-template-columns: 1fr; gap: 30px; padding: 30px; }
+            .stats-bar { grid-template-columns: repeat(2, 1fr); }
+            nav { padding: 16px 20px; }
+            .nav-links { display: none; }
+        }
+
+        @media (max-width: 600px) {
             .hero h1 { font-size: 2.3rem; }
-            .game-spotlight { grid-template-columns: 1fr; }
-            .nav-links { display: none; } /* Mobile simplified */
+            .stats-bar { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Sticky Navigation -->
+    <div class="ambient-glow"></div>
+
+    <!-- Navigation -->
     <nav>
-        <a href="#" class="logo">
+        <a href="index.html" class="logo">
             <span class="logo-icon">K</span>
             KENERI STUDIOS
         </a>
         <div class="nav-links">
             <a href="#games">Games</a>
-            <a href="#philosophy">Philosophy</a>
-            <a href="#pipeline">The Lab</a>
+            <a href="#philosophy">Principles</a>
+            <a href="#lab">R&D Lab</a>
             <a href="#contact">Contact</a>
-            <a href="privacy-policy.html">Privacy Policy</a>
-            <a href="#games" class="nav-cta">Closed Beta</a>
+            <a href="privacy-policy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+            <a href="degen-empire.html" class="nav-cta">Degen Empire &rarr;</a>
         </div>
     </nav>
 
     <div class="container">
 
         <!-- Hero Section -->
-        <header class="hero">
-            <div class="hero-badge">Indie Game Development Studio</div>
-            <h1>Smart Gaming.<br><span>Addictive Tycoon Depth.</span></h1>
-            <p>We craft high-velocity mobile simulation and idle tycoon games that entertain relentlessly while sharpening your real-world strategic and economic intuition.</p>
+        <div class="hero">
+            <div class="hero-badge">
+                <span></span> Smart Gaming &bull; Native Tycoon Simulations
+            </div>
+            <h1>Architecting High-Velocity<br><span class="highlight">Tycoon Simulators</span> & Edutainment</h1>
+            <p>Keneri Studios merges real economic principles, satirical storytelling, and hyper-optimized native mobile architecture to create gaming experiences you actually learn from.</p>
             <div class="hero-buttons">
-                <a href="#games" class="btn btn-primary">Explore Flagship Game</a>
-                <a href="#contact" class="btn btn-secondary">Join Community & Beta</a>
+                <a href="degen-empire.html" class="btn btn-primary">⚡ Explore Degen Empire</a>
+                <a href="#philosophy" class="btn btn-secondary">Our Principles</a>
             </div>
-        </header>
+        </div>
 
-        <!-- The Canary Principle (Manifesto) -->
-        <section id="philosophy">
-            <div class="section-header">
-                <span class="section-tag">The Canary Principle</span>
-                <h2 class="section-title">Built for the Sharp Mind</h2>
+        <!-- Stats Counter -->
+        <div class="stats-bar">
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>Native Performance</p>
             </div>
-            <div class="principles-grid">
-                <div class="principle-card">
-                    <div class="principle-icon">⚡</div>
-                    <h3>High-Loop Dopamine</h3>
-                    <p>Relentlessly engaging incremental loops, exponential multipliers, and rich progression systems that reward your dedication.</p>
-                </div>
-                <div class="principle-card">
-                    <div class="principle-icon">🧠</div>
-                    <h3>Subconscious Wisdom</h3>
-                    <p>No boring lectures. We embed economic intuition, asset allocation, and compounding dynamics organically into core gameplay.</p>
-                </div>
-                <div class="principle-card">
-                    <div class="principle-icon">🛡️</div>
-                    <h3>Player-First Design</h3>
-                    <p>Clean mechanics, transparent data practices, and respect for player time. No predatory roadblocks—pure strategic flow.</p>
-                </div>
+            <div class="stat-item">
+                <h3>170+</h3>
+                <p>Global Store Markets</p>
             </div>
-        </section>
+            <div class="stat-item">
+                <h3>0</h3>
+                <p>Data Brokers / Tracking</p>
+            </div>
+            <div class="stat-item">
+                <h3>60 FPS</h3>
+                <p>Engine Fluidity</p>
+            </div>
+        </div>
 
-        <!-- Featured Flagship Game -->
+        <!-- Featured Flagship: Degen Empire -->
         <section id="games">
             <div class="section-header">
-                <span class="section-tag">Flagship Release</span>
-                <h2 class="section-title">Degen Empire: Richbro Edition</h2>
+                <span class="section-tag">Flagship Title</span>
+                <h2 class="section-title">Featured Release</h2>
+                <p class="section-desc">Our revolutionary business and satire tycoon game built for strategic minds.</p>
             </div>
+
             <div class="game-spotlight">
-                <div class="game-art">
-                    <div class="game-art-title">DEGEN EMPIRE</div>
-                    <div class="game-art-subtitle">Richbro Edition</div>
-                    <span class="badge-closed-beta" style="margin-top: 15px;">Closed Testing Phase</span>
-                </div>
-                <div class="game-info">
-                    <span class="badge-closed-beta">Status: Closed Beta</span>
-                    <h3>Build Your Financial Hegemony</h3>
-                    <p>Start from absolute zero balance, master high-stakes market hype, automate cash flows, and build an unstoppable financial empire in this satirical idle tycoon simulation.</p>
-                    <div class="game-meta">
-                        <span>📱 Platform: Android / iOS</span>
-                        <span>🕹️ Genre: Idle Tycoon</span>
+                <div class="game-art-box">
+                    <span class="art-tag">Android / Google Play</span>
+                    <div class="game-art-title">DEGEN<br>EMPIRE</div>
+                    <div class="game-art-sub">Richbro Edition</div>
+                    <div class="game-pills">
+                        <span class="game-pill">Forbes 100 Leaderboard</span>
+                        <span class="game-pill">Crypto & Wall Street</span>
+                        <span class="game-pill">Conglomerates</span>
+                        <span class="game-pill">Luxury Garages</span>
                     </div>
-                    <div class="hero-buttons" style="justify-content: flex-start;">
-                        <a href="mailto:keneristudios@gmail.com?subject=Degen%20Empire%20Closed%20Beta%20Tester%20Request" class="btn btn-primary">Join Closed Beta</a>
-                        <a href="privacy-policy.html" class="btn btn-secondary">Privacy Policy</a>
+                </div>
+
+                <div class="game-info">
+                    <span class="badge-live">● Internal & Closed Beta Active</span>
+                    <h3>Dominate Global Wealth & Market Cycles</h3>
+                    <p>Start with a dollar and a dream. Build conglomerates across aerospace, tech, energy, and sports. Ride volatile crypto cycles, trade Wall Street equities, collect hypercars, and climb the real-time Forbes 100 billionaire leaderboard.</p>
+                    
+                    <ul class="game-features-list">
+                        <li><span>⚡</span> Real-time compound cashflow simulation & empire automation</li>
+                        <li><span>⚡</span> Encrypted cloud backup with seamless Google Sign-In</li>
+                        <li><span>⚡</span> VIP Gold memberships for sovereign perks & zero ad interruptions</li>
+                    </ul>
+
+                    <div>
+                        <a href="degen-empire.html" class="btn btn-primary">Full Game Deep-Dive &rarr;</a>
+                        <a href="mailto:keneristudios@gmail.com?subject=Degen%20Empire%20Closed%20Beta%20Access" class="btn btn-secondary" style="margin-left: 10px;">Request Beta Access</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- The Pipeline / Future Games -->
-        <section id="pipeline">
+        <!-- Studio Pillars -->
+        <section id="philosophy">
             <div class="section-header">
-                <span class="section-tag">The Pipeline</span>
-                <h2 class="section-title">Keneri Studios R&D Lab</h2>
+                <span class="section-tag">Studio Philosophy</span>
+                <h2 class="section-title">The Keneri Standards</h2>
+                <p class="section-desc">We reject hollow clickers and predatory game loops. Here is how we build.</p>
             </div>
+
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="pillar-icon">🧠</div>
+                    <h3>Smart Gaming (Edutainment)</h3>
+                    <p>Games that teach compounding yield, opportunity cost, liquidity, and balance sheets while entertaining you with hyper-engaging progression.</p>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-icon">🎭</div>
+                    <h3>Satirical Storytelling</h3>
+                    <p>Sharp cultural parody reflecting modern finance, startup culture, speculative markets, and the absurdity of billionaire hustle lifestyles.</p>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-icon">🛡️</div>
+                    <h3>Player Sovereignty & Privacy</h3>
+                    <p>No predatory tracking, zero data brokers, and military-grade local encryption (MMKV). You own your time and your data.</p>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-icon">⚡</div>
+                    <h3>High-Performance Native Tech</h3>
+                    <p>Engineered using React Native, Expo, Kotlin/C++ native acceleration, and Firebase for blistering speed and minimal battery drain.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pipeline / Lab -->
+        <section id="lab">
+            <div class="section-header">
+                <span class="section-tag">R&D Lab</span>
+                <h2 class="section-title">Experimental Pipeline</h2>
+                <p class="section-desc">Prototypes, utilities, and future releases currently under active development.</p>
+            </div>
+
             <div class="pipeline-grid">
                 <div class="pipeline-card">
-                    <span class="pipeline-tag">In Prototyping</span>
-                    <h4>Project: Yield Vector</h4>
-                    <p>A fast-paced macro-strategy simulation focused on real-time trade logistics and market dominance.</p>
+                    <div class="pipeline-status">Prototype Stage</div>
+                    <h4>Autonomous Tycoon</h4>
+                    <p>A macro-economic simulator where AI-driven hedge fund agents trade, lobby, and compete against the player in dynamic real-time markets.</p>
                 </div>
+
                 <div class="pipeline-card">
-                    <span class="pipeline-tag">Concept Phase</span>
-                    <h4>Project: Neural Tycoon</h4>
-                    <p>An algorithmic automation puzzle game where logic trees drive an automated cyberpunk enterprise.</p>
+                    <div class="pipeline-status">Utility Tool</div>
+                    <h4>Cycle Tracker (Android)</h4>
+                    <p>An absolute zero-telemetry, offline-first personal health tracking utility built for complete user sovereignty.</p>
                 </div>
+
+                <div class="pipeline-card">
+                    <div class="pipeline-status">Conceptual R&D</div>
+                    <h4>Metropolis 2088</h4>
+                    <p>A cyberpunk city-building strategy game focusing on resource supply chains, automated logistics, and vertical industrialization.</p>
+                </div>
+            </div>
+
+            <div class="section-header" style="margin-top: 60px; margin-bottom: 20px;">
+                <span class="section-tag">Engineering Infrastructure</span>
+                <h3 style="font-size: 1.4rem; font-weight: 700; margin-top: 6px;">Technologies Powering Our Engines</h3>
+            </div>
+            <div class="tech-grid">
+                <span class="tech-badge">⚡ React Native & Expo</span>
+                <span class="tech-badge">🔥 Google Cloud Firebase & Firestore</span>
+                <span class="tech-badge">💳 Google Play Billing (IAP)</span>
+                <span class="tech-badge">🔒 Encrypted MMKV Storage</span>
+                <span class="tech-badge">📱 Android Studio & Gradle</span>
+                <span class="tech-badge">🎯 Google Mobile Ads (AdMob)</span>
             </div>
         </section>
 
         <!-- Contact & Community Hub -->
         <section id="contact">
             <div class="contact-box">
-                <span class="section-tag">Direct Line & Community</span>
-                <h2 class="section-title" style="margin-bottom: 10px;">Connect With Keneri Studios</h2>
-                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">Whether you want to become a closed tester, report a game bug, discuss partnerships, or follow our dev logs, we are one click away.</p>
-                
+                <span class="section-tag">Get in Touch</span>
+                <h2 class="section-title" style="margin-top: 8px;">Connect with Keneri Studios</h2>
+                <p class="section-desc">Have a question, feedback, partnership inquiry, or press request? Reach out directly.</p>
+
                 <div class="contact-grid">
-                    <!-- Email Contact Card -->
                     <a href="mailto:keneristudios@gmail.com" class="contact-item">
-                        <div class="contact-item-label">Official Support & Press</div>
-                        <div class="contact-item-val">keneristudios@gmail.com</div>
-                        <div class="contact-item-sub">Direct Developer Inbox &rarr;</div>
+                        <span class="contact-item-label">Direct Studio Desk</span>
+                        <span class="contact-item-val">keneristudios@gmail.com</span>
+                        <span class="contact-item-sub">Inquiries, closed beta, support</span>
                     </a>
 
-                    <!-- Discord Community -->
-                    <a href="https://discord.gg/" target="_blank" rel="noopener" class="contact-item">
-                        <div class="contact-item-label">Community & Beta Testing</div>
-                        <div class="contact-item-val">Keneri Discord</div>
-                        <div class="contact-item-sub">Join Tester Channels &rarr;</div>
+                    <a href="https://x.com/keneristudios" target="_blank" rel="noopener" class="contact-item">
+                        <span class="contact-item-label">X / Twitter</span>
+                        <span class="contact-item-val">@keneristudios</span>
+                        <span class="contact-item-sub">Game development logs & updates</span>
                     </a>
 
-                    <!-- X / Twitter -->
-                    <a href="https://twitter.com/keneristudios" target="_blank" rel="noopener" class="contact-item">
-                        <div class="contact-item-label">Devlogs & News</div>
-                        <div class="contact-item-val">@KeneriStudios</div>
-                        <div class="contact-item-sub">Follow on X (Twitter) &rarr;</div>
+                    <a href="https://www.youtube.com/channel/UCltBeX0w3kPOQyBO6ihvtqg" target="_blank" rel="noopener" class="contact-item">
+                        <span class="contact-item-label">YouTube</span>
+                        <span class="contact-item-val">Keneri Studios</span>
+                        <span class="contact-item-sub">Trailers, gameplay & dev logs</span>
                     </a>
 
-                    <!-- TikTok / YouTube -->
-                    <a href="https://tiktok.com/@keneristudios" target="_blank" rel="noopener" class="contact-item">
-                        <div class="contact-item-label">Gameplay & Teasers</div>
-                        <div class="contact-item-val">TikTok / YouTube</div>
-                        <div class="contact-item-sub">Watch Clips & Shorts &rarr;</div>
+                    <a href="https://t.me/keneristudios" target="_blank" rel="noopener" class="contact-item">
+                        <span class="contact-item-label">Telegram</span>
+                        <span class="contact-item-val">t.me/keneristudios</span>
+                        <span class="contact-item-sub">Official announcement channel</span>
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- Global Footer -->
+        <!-- Footer -->
         <footer>
-            <p>&copy; 2026 <strong>Keneri Studios</strong>. All rights reserved.</p>
+            <p>&copy; 2026 <strong>Keneri Studios</strong> &bull; Founded by Wisdom Nwaeze. All rights reserved.</p>
             <div class="footer-nav">
-                <a href="#">Home</a>
-                <a href="#games">Games</a>
-                <a href="#philosophy">About</a>
+                <a href="index.html">Studio Home</a>
+                <a href="degen-empire.html">Degen Empire</a>
                 <a href="privacy-policy.html">Privacy Policy</a>
-                <a href="#contact">Contact</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="app-ads.txt">app-ads.txt</a>
+                <a href="mailto:keneristudios@gmail.com">Contact</a>
             </div>
-            <p style="font-size: 0.8rem; color: #586069; margin-top: 10px;">Official Studio Portal &bull; keneristudios@gmail.com</p>
+            <p class="legal-notice">
+                Disclaimer: All games and software produced by Keneri Studios (including Degen Empire: Richbro Edition) are satirical simulations created for entertainment and edutainment. Virtual currencies, assets, stocks, and crypto representations have zero real-world monetary value and cannot be redeemed for legal tender.
+            </p>
         </footer>
 
     </div>

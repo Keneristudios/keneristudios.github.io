@@ -3,71 +3,592 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Degen Empire: Richbro Edition | Keneri Studios</title>
-    <meta name="description" content="Official game page for Degen Empire: Richbro Edition by Keneri Studios. Build your empire, master satirical economics, and dominate the leaderboard.">
+    <title>Degen Empire: Richbro Edition | Official Game Page | Keneri Studios</title>
+    <meta name="description" content="Official game page for Degen Empire: Richbro Edition by Keneri Studios. Master satirical economics, trade simulated crypto & stocks, scale conglomerates, and dominate the Forbes 100 leaderboard.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-base: #0a0d14;
-            --bg-card: #121824;
+            --bg-base: #07090e;
+            --bg-card: #0e131d;
+            --bg-card-glass: rgba(14, 19, 29, 0.75);
+            --bg-card-hover: #151d2c;
             --canary-gold: #ffd000;
-            --canary-glow: rgba(255, 208, 0, 0.25);
+            --canary-glow: rgba(255, 208, 0, 0.35);
+            --canary-muted: rgba(255, 208, 0, 0.12);
             --text-main: #f0f6fc;
             --text-muted: #8b949e;
-            --border-color: #232b3e;
-            --accent-green: #238636;
+            --text-sub: #cbd5e1;
+            --border-color: #1e2638;
+            --border-glow: rgba(255, 208, 0, 0.25);
+            --accent-green: #00f59b;
+            --accent-cyan: #00d2ff;
+            --accent-purple: #9d4edd;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: var(--bg-base); color: var(--text-main); line-height: 1.6; }
-        
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 40px; background: rgba(10, 13, 20, 0.95); border-bottom: 1px solid var(--border-color); }
-        .logo { display: flex; align-items: center; gap: 10px; font-size: 1.15rem; font-weight: 800; color: var(--canary-gold); text-decoration: none; letter-spacing: 1px; }
-        .logo-icon { width: 24px; height: 24px; background: var(--canary-gold); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: #000; font-weight: 900; font-size: 0.8rem; }
-        .nav-links a { color: var(--text-muted); text-decoration: none; margin-left: 20px; font-size: 0.9rem; font-weight: 500; }
-        .nav-links a:hover { color: var(--canary-gold); }
+        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
 
-        .container { max-width: 950px; margin: 0 auto; padding: 0 20px; }
+        /* Ambient Background Glow */
+        .ambient-glow {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 1100px;
+            height: 600px;
+            background: radial-gradient(circle at 50% 15%, rgba(255, 208, 0, 0.1) 0%, rgba(0, 245, 155, 0.04) 40%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 40px;
+            background: rgba(7, 9, 14, 0.88);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--canary-gold);
+            text-decoration: none;
+            letter-spacing: 1.5px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .logo-icon {
+            width: 30px;
+            height: 30px;
+            background: var(--canary-gold);
+            border-radius: 7px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-weight: 900;
+            font-size: 0.95rem;
+            box-shadow: 0 0 16px var(--canary-glow);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--canary-gold);
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
 
         /* Game Hero */
-        .game-hero { text-align: center; padding: 60px 20px 40px; }
-        .badge { display: inline-block; background: rgba(35, 134, 54, 0.2); border: 1px solid var(--accent-green); color: #3fb950; font-size: 0.8rem; font-weight: 700; padding: 5px 14px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
-        .game-hero h1 { font-size: 3.2rem; font-weight: 900; line-height: 1.1; margin-bottom: 15px; letter-spacing: -1px; }
-        .game-hero h1 span { color: var(--canary-gold); }
-        .game-hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 650px; margin: 0 auto 30px; }
-        
-        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 26px; border-radius: 8px; font-size: 0.95rem; font-weight: 700; text-decoration: none; transition: transform 0.15s; }
-        .btn-primary { background: var(--canary-gold); color: #000; box-shadow: 0 4px 20px var(--canary-glow); }
-        .btn-primary:hover { transform: translateY(-2px); }
-        .btn-secondary { background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border-color); margin-left: 10px; }
-        .btn-secondary:hover { border-color: var(--canary-gold); }
+        .game-hero {
+            text-align: center;
+            padding: 85px 20px 60px;
+        }
 
-        /* Highlights Grid */
-        .section-title { font-size: 1.8rem; font-weight: 800; text-align: center; margin: 50px 0 30px; }
-        .highlights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-        .highlight-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; }
-        .highlight-icon { font-size: 1.8rem; margin-bottom: 12px; }
-        .highlight-card h3 { font-size: 1.2rem; color: var(--text-main); margin-bottom: 8px; }
-        .highlight-card p { font-size: 0.9rem; color: var(--text-muted); }
+        .badge-beta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 245, 155, 0.12);
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 0.82rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 24px;
+        }
 
-        /* Edutainment Banner */
-        .edu-box { background: linear-gradient(135deg, #121824 0%, #1a2234 100%); border: 1px solid var(--canary-gold); border-radius: 16px; padding: 35px; margin: 50px 0; }
-        .edu-box h3 { font-size: 1.5rem; color: var(--canary-gold); margin-bottom: 12px; }
-        .edu-box p { color: #ccd0db; font-size: 0.95rem; margin-bottom: 15px; }
-        .edu-list { margin-left: 20px; color: #a0aec0; font-size: 0.95rem; }
-        .edu-list li { margin-bottom: 6px; }
+        .badge-beta span {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 8px var(--accent-green);
+        }
+
+        .game-hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4rem;
+            line-height: 1.08;
+            font-weight: 900;
+            margin-bottom: 20px;
+            letter-spacing: -1.5px;
+        }
+
+        .game-hero h1 span.gold {
+            color: var(--canary-gold);
+            text-shadow: 0 0 45px var(--canary-glow);
+        }
+
+        .game-hero p {
+            font-size: 1.25rem;
+            color: var(--text-sub);
+            max-width: 740px;
+            margin: 0 auto 35px;
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--canary-gold);
+            color: #000;
+            box-shadow: 0 4px 25px var(--canary-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(255, 208, 0, 0.5);
+        }
+
+        .btn-secondary {
+            background: var(--bg-card);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--canary-gold);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Visual Mockup Card */
+        .mockup-card {
+            background: linear-gradient(145deg, #101524 0%, #080b12 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            padding: 40px;
+            margin: 40px 0 70px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            text-align: center;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        .mockup-item {
+            background: #090d16;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px 20px;
+            transition: border-color 0.2s ease;
+        }
+
+        .mockup-item:hover {
+            border-color: var(--canary-gold);
+        }
+
+        .mockup-item-icon {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+        }
+
+        .mockup-item h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.15rem;
+            color: var(--canary-gold);
+            margin-bottom: 6px;
+        }
+
+        .mockup-item p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+        }
+
+        /* Section Global */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-tag {
+            color: var(--canary-gold);
+            font-size: 0.82rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.3rem;
+            font-weight: 800;
+            margin-top: 6px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 650px;
+            margin: 10px auto 0;
+        }
+
+        /* Game Features Detailed Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 32px 28px;
+            border-radius: 14px;
+            transition: all 0.25s ease;
+            position: relative;
+        }
+
+        .feature-card:hover {
+            border-color: var(--border-glow);
+            transform: translateY(-3px);
+            background: var(--bg-card-hover);
+        }
+
+        .feature-icon-badge {
+            width: 48px;
+            height: 48px;
+            background: var(--canary-muted);
+            border: 1px solid rgba(255, 208, 0, 0.3);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        /* VIP Tier Box */
+        .vip-box {
+            background: linear-gradient(145deg, #181d2a 0%, #0d121c 100%);
+            border: 1px solid var(--canary-gold);
+            border-radius: 18px;
+            padding: 45px 35px;
+            margin: 50px 0;
+            box-shadow: 0 0 35px var(--canary-muted);
+            text-align: center;
+        }
+
+        .vip-badge {
+            display: inline-block;
+            background: var(--canary-gold);
+            color: #000;
+            font-size: 0.8rem;
+            font-weight: 800;
+            padding: 5px 16px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .vip-box h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--canary-gold);
+            margin-bottom: 12px;
+        }
+
+        .vip-box p {
+            color: var(--text-sub);
+            max-width: 650px;
+            margin: 0 auto 30px;
+            font-size: 1.05rem;
+        }
+
+        .vip-tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            text-align: left;
+        }
+
+        .tier-card {
+            background: #080c14;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .tier-card.featured {
+            border-color: var(--canary-gold);
+            box-shadow: 0 0 20px var(--canary-muted);
+        }
+
+        .tier-tag {
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--canary-gold);
+            letter-spacing: 1px;
+        }
+
+        .tier-price {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #fff;
+            margin: 6px 0 12px;
+        }
+
+        .tier-perks {
+            list-style: none;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .tier-perks li {
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .tier-perks li::before {
+            content: '✓';
+            color: var(--accent-green);
+            font-weight: 800;
+        }
+
+        /* Edutainment Breakdown */
+        .edu-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 40px;
+            margin: 50px 0;
+        }
+
+        .edu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 30px;
+        }
+
+        .edu-item h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.15rem;
+            color: var(--canary-gold);
+            margin-bottom: 8px;
+        }
+
+        .edu-item p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+        }
+
+        /* Game Specs */
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 25px;
+        }
+
+        .specs-table tr {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .specs-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .specs-table td {
+            padding: 16px 24px;
+            font-size: 0.92rem;
+        }
+
+        .specs-table td.label {
+            font-weight: 700;
+            color: var(--canary-gold);
+            width: 35%;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .specs-table td.value {
+            color: var(--text-sub);
+        }
 
         /* FAQ */
-        .faq-grid { display: grid; gap: 15px; margin-bottom: 50px; }
-        .faq-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 10px; padding: 20px 25px; }
-        .faq-card h4 { font-size: 1.05rem; color: var(--canary-gold); margin-bottom: 6px; }
-        .faq-card p { font-size: 0.9rem; color: var(--text-muted); }
+        .faq-grid {
+            display: grid;
+            gap: 16px;
+            margin-top: 30px;
+        }
 
-        footer { text-align: center; margin-top: 60px; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border-color); padding: 30px 20px; }
-        footer a { color: var(--canary-gold); text-decoration: none; }
+        .faq-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px 28px;
+        }
+
+        .faq-card h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.15rem;
+            color: var(--canary-gold);
+            margin-bottom: 8px;
+        }
+
+        .faq-card p {
+            font-size: 0.93rem;
+            color: var(--text-muted);
+        }
+
+        /* Legal Disclaimer Box */
+        .legal-box {
+            background: rgba(255, 208, 0, 0.05);
+            border: 1px solid rgba(255, 208, 0, 0.25);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 60px 0 20px;
+            font-size: 0.85rem;
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
+        .legal-box strong {
+            color: var(--canary-gold);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 50px 20px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 70px;
+            background: #05070a;
+        }
+
+        footer a {
+            color: var(--canary-gold);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-nav {
+            margin: 20px 0;
+        }
+
+        .footer-nav a {
+            margin: 0 14px;
+            color: var(--text-muted);
+        }
+
+        .footer-nav a:hover {
+            color: var(--canary-gold);
+        }
+
+        @media (max-width: 900px) {
+            .game-hero h1 { font-size: 3rem; }
+            .mockup-card { grid-template-columns: 1fr; gap: 15px; padding: 25px; }
+            .vip-tiers-grid { grid-template-columns: 1fr; }
+            nav { padding: 16px 20px; }
+            .nav-links { display: none; }
+        }
     </style>
 </head>
 <body>
 
+    <div class="ambient-glow"></div>
+
+    <!-- Navigation -->
     <nav>
         <a href="index.html" class="logo">
             <span class="logo-icon">K</span>
@@ -75,75 +596,261 @@
         </a>
         <div class="nav-links">
             <a href="index.html">&larr; Studio Home</a>
-            <a href="privacy-policy.html">Privacy Policy</a>
-            <a href="mailto:keneristudios@gmail.com">Tester Support</a>
+            <a href="#features">Features</a>
+            <a href="#vip">VIP Perks</a>
+            <a href="#edutainment">Edutainment</a>
+            <a href="#specs">Specs</a>
+            <a href="#faq">FAQ</a>
+            <a href="privacy-policy.html">Privacy</a>
         </div>
     </nav>
 
     <div class="container">
 
-        <!-- Game Hero -->
+        <!-- Hero -->
         <div class="game-hero">
-            <span class="badge">Closed Testing Phase</span>
-            <h1>DEGEN EMPIRE<br><span>Richbro Edition</span></h1>
-            <p>From living on instant noodles to running global financial hegemony. Master compounding assets, ride volatile market hype, and build the ultimate idle cashflow machine.</p>
-            <div>
-                <a href="mailto:keneristudios@gmail.com?subject=Degen%20Empire%20Closed%20Beta%20Tester%20Request" class="btn btn-primary">Join Closed Beta (Android)</a>
-                <a href="privacy-policy.html" class="btn btn-secondary">Game Privacy Policy</a>
+            <div class="badge-beta">
+                <span></span> Google Play Internal & Closed Beta
+            </div>
+            <h1>DEGEN EMPIRE<br><span class="gold">Richbro Edition</span></h1>
+            <p>From surviving on instant noodles to sovereign global financial hegemony. Scale conglomerates, navigate volatile market hype, collect trophies, and conquer the global Forbes 100 leaderboard.</p>
+            
+            <div class="hero-actions">
+                <a href="mailto:keneristudios@gmail.com?subject=Degen%20Empire%20Closed%20Beta%20Access%20Request" class="btn btn-primary">
+                    ⚡ Request Closed Beta Access (Google Play)
+                </a>
+                <a href="#features" class="btn btn-secondary">Explore Mechanics</a>
             </div>
         </div>
 
-        <!-- Features Grid -->
-        <h2 class="section-title">Core Gameplay Highlights</h2>
-        <div class="highlights-grid">
-            <div class="highlight-card">
-                <div class="highlight-icon">📈</div>
-                <h3>The Hustle Loop</h3>
-                <p>Click, scale, automate. Reinvest your initial pennies into automated assets that generate billions while you sleep.</p>
+        <!-- 3-Pillar Mockup Grid -->
+        <div class="mockup-card">
+            <div class="mockup-item">
+                <div class="mockup-item-icon">📈</div>
+                <h4>Automated Tycoon</h4>
+                <p>Build passive cashflow streams across aerospace, tech, energy, and luxury sectors.</p>
             </div>
-            <div class="highlight-card">
-                <div class="highlight-icon">🚀</div>
-                <h3>Satirical Hype Cycles</h3>
-                <p>Ride high-octane economic bubbles, buy luxury trophy assets, and cash out before market corrections hit.</p>
+            <div class="mockup-item">
+                <div class="mockup-item-icon">💎</div>
+                <h4>Forbes 100 Ladder</h4>
+                <p>Compete in real-time against billionaires worldwide on Firestore cloud servers.</p>
             </div>
-            <div class="highlight-card">
-                <div class="highlight-icon">👑</div>
-                <h3>Prestige Multipliers</h3>
-                <p>Rebirth your empire to unlock permanent yield boosters, billionaire perks, and elite status trophies.</p>
+            <div class="mockup-item">
+                <div class="mockup-item-icon">🚀</div>
+                <h4>Meme & Crypto DEX</h4>
+                <p>Ride satirical hype cycles, swing trade market dips, and launch viral tokens.</p>
             </div>
         </div>
 
-        <!-- Edutainment Callout -->
-        <div class="edu-box">
-            <h3>🧠 The "Smart Gaming" Angle: What You Actually Learn</h3>
-            <p>Underneath the addictive clicker mechanics and humor, <em>Degen Empire</em> teaches core financial and strategic fundamentals organically:</p>
-            <ul class="edu-list">
-                <li><strong>Compounding Growth:</strong> How small, consistent reinvestments outpace quick short-term cash.</li>
-                <li><strong>Opportunity Cost:</strong> Choosing between immediate liquid cash vs. long-term passive infrastructure.</li>
-                <li><strong>Cashflow Automation:</strong> Building systems that decouple your time from revenue generation.</li>
-            </ul>
-        </div>
+        <!-- Detailed Feature Modules -->
+        <section id="features">
+            <div class="section-header">
+                <span class="section-tag">Deep Simulation Systems</span>
+                <h2 class="section-title">Core Gameplay Architecture</h2>
+                <p class="section-desc">Every subsystem in Degen Empire is engineered with authentic economic depth and satirical flair.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon-badge">🏢</div>
+                    <h3>Multi-Sector Conglomerates</h3>
+                    <p>Acquire and scale industrial assets from Defense Contractors and Aerospace Holdings to AI Superclusters, Biotech Labs, and Renewable Energy grids.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-badge">📉</div>
+                    <h3>Crypto DEX & Wall Street Stocks</h3>
+                    <p>Trade simulated volatile crypto tokens, participate in early-stage Launchpads, and balance your risk profile across high-yield equities.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-badge">🏎️</div>
+                    <h3>Luxury Garages & Trophy Assets</h3>
+                    <p>Spend liquid fortunes on iconic hypercars, Gulfstream private jets, megayachts, private islands, and penthouse estates that boost your prestige.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-badge">⚽</div>
+                    <h3>Sports Franchises</h3>
+                    <p>Own premier European football clubs, basketball dynasties, and baseball franchises to tap into massive global broadcast revenue streams.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-badge">👑</div>
+                    <h3>Real-Time Forbes Leaderboard</h3>
+                    <p>Your total net worth (cash + businesses + real estate + crypto - loans) is synced to Google Cloud Firestore, placing you on the global leaderboard.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-badge">☁️</div>
+                    <h3>Encrypted Cloud Sync</h3>
+                    <p>Authenticate seamlessly with Google Sign-In to back up your empire save state. Local saves are hardened with encrypted MMKV storage.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIP Membership Section -->
+        <section id="vip">
+            <div class="vip-box">
+                <span class="vip-badge">VIP Sovereign Pass</span>
+                <h3>Ascend to VIP Status</h3>
+                <p>Elevate your empire with exclusive sovereign perks, permanent multipliers, and complete removal of all advertising interruptions.</p>
+
+                <div class="vip-tiers-grid">
+                    <div class="tier-card">
+                        <div>
+                            <span class="tier-tag">Monthly Pass</span>
+                            <div class="tier-price">$2.99 <span style="font-size: 0.9rem; color: var(--text-muted); font-weight: normal;">/mo</span></div>
+                            <ul class="tier-perks">
+                                <li>100% Ad-Free Experience</li>
+                                <li>Golden Crown on Leaderboard</li>
+                                <li>+25% Cash Multiplier</li>
+                                <li>Cloud Sync Priority</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="tier-card">
+                        <div>
+                            <span class="tier-tag">Yearly Pass (Best Annual Value)</span>
+                            <div class="tier-price">$9.99 <span style="font-size: 0.9rem; color: var(--text-muted); font-weight: normal;">/yr</span></div>
+                            <ul class="tier-perks">
+                                <li>100% Ad-Free Experience</li>
+                                <li>Golden Crown on Leaderboard</li>
+                                <li>+50% Cash Multiplier</li>
+                                <li>Exclusive Founder Badge</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="tier-card featured">
+                        <div>
+                            <span class="tier-tag">👑 Lifetime Sovereign (Most Popular)</span>
+                            <div class="tier-price">$19.99 <span style="font-size: 0.9rem; color: var(--text-muted); font-weight: normal;">one-time</span></div>
+                            <ul class="tier-perks">
+                                <li>Permanent 100% Ad-Free Access</li>
+                                <li>Permanent Golden Crown Leaderboard</li>
+                                <li>+100% Empire Yield Booster</li>
+                                <li>All Future DLCs & Features Included</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Edutainment Breakdown -->
+        <section id="edutainment">
+            <div class="edu-container">
+                <div class="section-header" style="margin-bottom: 10px;">
+                    <span class="section-tag">The Edutainment Angle</span>
+                    <h2 class="section-title">What You Actually Learn</h2>
+                    <p class="section-desc">Underneath the satirical memes and high-velocity clicks, Degen Empire models genuine macroeconomic principles.</p>
+                </div>
+
+                <div class="edu-grid">
+                    <div class="edu-item">
+                        <h4>Compounding Interest & Yield</h4>
+                        <p>Experience firsthand how continuous reinvestment of cashflows outpaces linear wage work by exponential multiples.</p>
+                    </div>
+
+                    <div class="edu-item">
+                        <h4>Liquidity vs. Illiquid Equity</h4>
+                        <p>Learn to balance immediate operational cash with long-term illiquid assets like real estate, luxury yachts, and sports teams.</p>
+                    </div>
+
+                    <div class="edu-item">
+                        <h4>Market Volatility & Drawdowns</h4>
+                        <p>Understand cycle timing, risk management, and the danger of over-leveraging through dynamic simulated stock & crypto markets.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Specs -->
+        <section id="specs">
+            <div class="section-header">
+                <span class="section-tag">Specifications</span>
+                <h2 class="section-title">Game Information</h2>
+            </div>
+
+            <table class="specs-table">
+                <tr>
+                    <td class="label">Title</td>
+                    <td class="value">Degen Empire: Richbro Edition</td>
+                </tr>
+                <tr>
+                    <td class="label">Developer & Publisher</td>
+                    <td class="value">Keneri Studios (Wisdom Nwaeze)</td>
+                </tr>
+                <tr>
+                    <td class="label">Platform</td>
+                    <td class="value">Android (Google Play Store) &bull; iOS (In Pipeline)</td>
+                </tr>
+                <tr>
+                    <td class="label">Current Status</td>
+                    <td class="value">Closed Testing / Internal Release (Version 1.0.6)</td>
+                </tr>
+                <tr>
+                    <td class="label">Engine & Tech Stack</td>
+                    <td class="value">React Native 0.86, Expo 57, Google Firebase Firestore, MMKV Encrypted Storage</td>
+                </tr>
+                <tr>
+                    <td class="label">In-App Purchases</td>
+                    <td class="value">VIP Monthly ($2.99), VIP Yearly ($9.99), VIP Lifetime ($19.99) via Google Play Billing</td>
+                </tr>
+                <tr>
+                    <td class="label">Content Rating</td>
+                    <td class="value">High / Mature (Satirical Humor, Mock Financial Trading)</td>
+                </tr>
+            </table>
+        </section>
 
         <!-- FAQ -->
-        <h2 class="section-title">Frequently Asked Questions</h2>
-        <div class="faq-grid">
-            <div class="faq-card">
-                <h4>How do I join the Closed Testing on Google Play?</h4>
-                <p>Click the "Join Closed Beta" button or email us at <strong>keneristudios@gmail.com</strong>. We will add your Google Play email to our authorized tester whitelist.</p>
+        <section id="faq">
+            <div class="section-header">
+                <span class="section-tag">Frequently Asked Questions</span>
+                <h2 class="section-title">Got Questions?</h2>
             </div>
-            <div class="faq-card">
-                <h4>Does the game collect any personal data?</h4>
-                <p>No. We do not collect names, phone numbers, or passwords. Check our <a href="privacy-policy.html">Master Privacy Policy</a> for third-party ad and stability telemetry disclosures.</p>
+
+            <div class="faq-grid">
+                <div class="faq-card">
+                    <h4>How do I join the Closed Beta on Google Play?</h4>
+                    <p>Send an email to <strong>keneristudios@gmail.com</strong> with your Google Play email address. We will add you to the authorized internal testing track within 24 hours.</p>
+                </div>
+
+                <div class="faq-card">
+                    <h4>Is real money used in the game?</h4>
+                    <p>No. All cash, stocks, crypto, and assets in the game are strictly simulated virtual items with zero real-world monetary equivalence. Real money is only used for optional VIP store memberships processed via Google Play.</p>
+                </div>
+
+                <div class="faq-card">
+                    <h4>Can I restore my VIP purchase on a new device?</h4>
+                    <p>Yes. Tap "Restore Purchases" in the VIP store modal. As long as you are signed into the same Google Play account, your purchase will be verified and restored immediately.</p>
+                </div>
+
+                <div class="faq-card">
+                    <h4>How do I delete my cloud save and leaderboard profile?</h4>
+                    <p>Email <strong>keneristudios@gmail.com</strong> with your registered Google email or in-game username. We will purge all associated Firestore documents within 30 days.</p>
+                </div>
             </div>
-            <div class="faq-card">
-                <h4>Can I play offline?</h4>
-                <p>Yes. The game loop operates offline on your local device, and your earnings calculate immediately when you return.</p>
-            </div>
+        </section>
+
+        <!-- Legal Disclaimer -->
+        <div class="legal-box">
+            <strong>Legal Notice:</strong> <em>Degen Empire: Richbro Edition</em> is a satirical video game published by Keneri Studios for entertainment and education. Cryptocurrencies, tokens, equities, sports clubs, and billionaire assets depicted in the game are purely fictional. Keneri Studios does not provide financial, investment, or legal advice. Google Play and the Google Play logo are trademarks of Google LLC.
         </div>
 
+        <!-- Footer -->
         <footer>
             <p>&copy; 2026 <strong>Keneri Studios</strong> &bull; Degen Empire: Richbro Edition</p>
-            <p style="margin-top: 8px;"><a href="index.html">Studio Home</a> | <a href="privacy-policy.html">Privacy Policy</a> | <a href="mailto:keneristudios@gmail.com">keneristudios@gmail.com</a></p>
+            <div class="footer-nav">
+                <a href="index.html">Studio Home</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="app-ads.txt">app-ads.txt</a>
+                <a href="mailto:keneristudios@gmail.com">Tester Support</a>
+            </div>
         </footer>
 
     </div>
