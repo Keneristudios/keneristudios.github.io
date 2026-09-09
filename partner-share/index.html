@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!--
+  Partner live-share viewer (improvement #7) — read-only, no app needed.
+
+  HOSTING: copy this file to the static host behind `partnerViewerBaseUrl`
+  in lib/services/partner_link.dart (currently
+  https://keneristudios.github.io/partner-share/ as index.html), so a link
+  looks like https://keneristudios.github.io/partner-share/#t=<token>.
+
+  PRIVACY / DISCREET NOTES (do not weaken these):
+  - The token travels in the URL *fragment* (#t=…): fragments are never
+    sent to the server, so the token stays out of access logs.
+  - Title, og: tags and all visible copy use generic "wellness" wording
+    only — nothing explicit, so chat-link previews stay discreet.
+  - This page READS one row from `partner_shares` by token via the public
+    anon key (public by design). RLS on the table only serves rows that
+    are unrevoked and unexpired. No auth, no writes, no tracking scripts.
+
+  APPLY THE SQL FIRST: supabase/partner_shares.sql (table + RLS policies).
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wellness Update</title>
+<meta name="description" content="A private wellness update shared with you.">
+<meta property="og:title" content="Wellness update">
+<meta property="og:description" content="Someone shared a private wellness update with you.">
+<meta property="og:type" content="website">
+<style>
+  :root { color-scheme: light dark; }
+  body { font-family: system-ui, -apple-system, sans-serif; margin: 0;
+         padding: 24px 16px; max-width: 560px; margin-inline: auto; }
+  .card { border: 1px solid #ccc; border-radius: 12px; padding: 16px;
+          margin-bottom: 12px; }
+  .row { display: flex; gap: 8px; padding: 4px 0; }
+  .row b { min-width: 130px; }
+  h1 { font-size: 22px; }
+  h2 { font-size: 16px; margin: 12px 0 4px; }
+  ul { margin: 4px 0; padding-left: 20px; }
+  .muted { opacity: .7; font-size: 13px; }
+  #status { padding: 24px 0; }
+</style>
+</head>
+<body>
+<h1>Wellness Update</h1>
+<div id="status" class="muted">Loading…</div>
+<div id="view" hidden>
+  <div class="card">
+    <div class="row"><b>Status</b><span id="f-phase">—</span></div>
+    <div class="row"><b>Next window</b><span id="f-next">—</span></div>
+    <div class="row"><b>Peak window</b><span id="f-fert">—</span></div>
+    <div class="row"><b>Confidence</b><span id="f-conf">—</span></div>
+    <div class="row"><b>Valid until</b><span id="f-exp">—</span></div>
+  </div>
+  <div class="card" id="c-starts" hidden>
+    <h2>Recent</h2><ul id="f-starts"></ul>
+  </div>
+  <div class="card" id="c-symptoms" hidden>
+    <h2>Notes</h2><ul id="f-symptoms"></ul>
+  </div>
+  <div class="card" id="c-insights" hidden>
+    <h2>Insights</h2><ul id="f-insights"></ul>
+  </div>
+  <p class="muted">Read-only. Shared privately — the link stops working when
+  it expires or is revoked.</p>
+</div>
+<script>
+(function () {
+  // Same project as the app's community backend.
+  var SUPABASE_URL = 'https://efrgznhjeozhwpwbgzqo.supabase.co';
+  var ANON_KEY = 'sb_publishable_wTSpcYyVCN4X6XuF7CTl4g_bZs0FQEH';
+
+  var statusEl = document.getElementById('status');
+  var viewEl = document.getElementById('view');
+
+  function fail(msg) { statusEl.textContent = msg; }
+
+  // Token from the fragment only (#t=…), never from query params.
+  var m = /#t=([A-Za-z0-9_-]+)/.exec(location.hash || '');
+  if (!m) { fail('This link is missing its access token.'); return; }
+  var token = m[1];
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;',
+               '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  // Discreet phase wording mirrors the app's discreet mode.
+  function phaseLabel(p) {
+    switch ((p || '').toLowerCase()) {
+      case 'menstrual': return 'Phase A';
+      case 'follicular': return 'Phase B';
+      case 'ovulation': return 'Phase C (Peak)';
+      case 'luteal': return 'Phase D';
+      default: return 'Phase D';
+    }
+  }
+
+  fetch(SUPABASE_URL + '/rest/v1/partner_shares?token=eq.' +
+        encodeURIComponent(token) + '&select=payload,expires_at,revoked',
+    { headers: { 'apikey': ANON_KEY, 'Authorization': 'Bearer ' + ANON_KEY } })
+    .then(function (r) {
+      if (!r.ok) throw new Error('http ' + r.status);
+      return r.json();
+    })
+    .then(function (rows) {
+      if (!rows || !rows.length) throw new Error('empty');
+      var row = rows[0];
+      if (row.revoked) throw new Error('revoked');
+      if (new Date(row.expires_at).getTime() < Date.now()) {
+        throw new Error('expired');
+      }
+      var p = row.payload || {};
+      document.getElementById('f-phase').textContent =
+        phaseLabel(p.phase) +
+        (p.cycleDay ? ' \u2022 Day ' + p.cycleDay : '');
+      document.getElementById('f-next').textContent = p.next || '—';
+      document.getElementById('f-fert').textContent = p.fert || '—';
+      document.getElementById('f-conf').textContent = p.conf || '—';
+      document.getElementById('f-exp').textContent = p.exp || '—';
+      fill('starts', p.starts);
+      fill('symptoms', p.symptoms);
+      fill('insights', p.insights);
+      statusEl.hidden = true;
+      viewEl.hidden = false;
+    })
+    .catch(function (e) {
+      fail(e && e.message === 'expired'
+        ? 'This link has expired.'
+        : 'This link is no longer valid (it may have been revoked).');
+    });
+
+  function fill(name, items) {
+    if (!items || !items.length) return;
+    var ul = document.getElementById('f-' + name);
+    ul.innerHTML = items.map(function (s) {
+      return '<li>' + esc(s) + '</li>';
+    }).join('');
+    document.getElementById('c-' + name).hidden = false;
+  }
+})();
+</script>
+</body>
+</html>
