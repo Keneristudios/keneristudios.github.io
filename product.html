@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product — Keneri Studios</title>
+<meta name="description" content="A Keneri Studios product: what it is, what it does, and how it handles your data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07090f;--bg-2:#0b0f18;--card:#0e1420;--line:rgba(255,255,255,.08);
+  --ink:#f2f5fa;--body:#a8b3c7;--muted:#6c788c;
+  --gold:#e6a800;--gold-2:#ffd04d;--teal:#2fd3b4;--max:1080px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--body);font-family:'Plus Jakarta Sans',system-ui,sans-serif;
+  line-height:1.7;-webkit-font-smoothing:antialiased;min-height:100vh}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif;color:var(--ink);letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+nav{position:sticky;top:0;z-index:50;height:66px;display:flex;align-items:center;
+  justify-content:space-between;padding:0 28px;background:rgba(7,9,15,.8);
+  backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk';font-weight:700;
+  letter-spacing:.16em;font-size:.82rem;color:var(--ink)}
+.brand i{width:24px;height:24px;border-radius:7px;background:conic-gradient(from 210deg,var(--gold),var(--teal),var(--gold))}
+.back{font-size:.85rem;color:var(--muted);transition:color .2s}
+.back:hover{color:var(--ink)}
+
+header{padding:64px 0 40px;position:relative;overflow:hidden}
+header::before{content:'';position:absolute;inset:-40% 30% 40% -20%;
+  background:radial-gradient(circle at 30% 30%,rgba(230,168,0,.16),transparent 62%);pointer-events:none}
+.head{display:flex;gap:22px;align-items:flex-start;position:relative}
+.glyph{width:76px;height:76px;border-radius:20px;flex:0 0 auto;display:grid;place-items:center;
+  font-family:'Space Grotesk';font-weight:700;font-size:1.4rem;color:#0a0d14;
+  background:linear-gradient(140deg,var(--gold-2),var(--gold));box-shadow:0 16px 40px -18px rgba(230,168,0,.8)}
+.glyph img{width:100%;height:100%;object-fit:cover;border-radius:20px;display:block}
+h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.05;margin-bottom:10px}
+.tag{font-size:1.05rem;max-width:56ch}
+.meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.pill{display:inline-flex;align-items:center;gap:7px;padding:5px 13px;border-radius:999px;
+  font-size:.74rem;font-weight:600;border:1px solid var(--line);color:var(--muted)}
+.pill i{width:6px;height:6px;border-radius:50%;background:var(--muted)}
+.pill.live{color:var(--gold-2);border-color:rgba(230,168,0,.4);background:rgba(230,168,0,.08)}
+.pill.live i{background:var(--gold-2);box-shadow:0 0 10px var(--gold-2)}
+.pill.dev{color:var(--teal);border-color:rgba(47,211,180,.3);background:rgba(47,211,180,.06)}
+.pill.dev i{background:var(--teal)}
+.pill.plain{color:var(--body)}
+
+section{padding:36px 0}
+h2{font-size:1.35rem;margin-bottom:14px}
+p.lead{font-size:1.02rem;max-width:64ch}
+ul{list-style:none;display:grid;gap:10px;max-width:64ch}
+li{position:relative;padding-left:26px;font-size:.96rem}
+li::before{content:'';position:absolute;left:4px;top:.62em;width:7px;height:7px;border-radius:2px;
+  background:linear-gradient(140deg,var(--gold-2),var(--gold))}
+.privacy li::before{background:linear-gradient(140deg,var(--teal),#1f9e86)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px 28px}
+.note{margin-top:22px;font-size:.86rem;color:var(--muted)}
+.note a{color:var(--gold-2);border-bottom:1px solid rgba(230,168,0,.35)}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:999px;
+  font-size:.9rem;font-weight:600;border:1px solid var(--line);transition:.25s}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:linear-gradient(100deg,var(--gold),var(--gold-2));color:#1a1200;border:none}
+.btn.ghost{background:rgba(255,255,255,.03);color:var(--ink)}
+footer{margin-top:60px;padding:36px 0;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.82rem;color:var(--muted)}
+footer a:hover{color:var(--gold-2)}
+@media(max-width:600px){.head{flex-direction:column}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="brand" href="index.html"><i></i>KENERI STUDIOS</a>
+  <a class="back" href="index.html#products">← All products</a>
+</nav>
+
+<main id="page"></main>
+
+<footer class="wrap">
+  <span>© 2026 Keneri Studios</span>
+  <span><a href="privacy-policy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="mailto:keneristudios@gmail.com">Contact</a></span>
+</footer>
+
+<script src="assets/products.js"></script>
+<script>
+(function () {
+  // No ?app= (or a link shared without one) opens the flagship.
+  const id = new URLSearchParams(location.search).get('app') || 'monica';
+  const p = PRODUCTS[id];
+  const page = document.getElementById('page');
+
+  if (!p) {
+    page.innerHTML =
+      '<div class="wrap" style="padding:80px 0"><h1>Not found</h1>' +
+      '<p class="tag">That product is not in the catalogue. ' +
+      '<a class="note" href="index.html#products" style="color:var(--gold-2)">See all products</a>.</p></div>';
+    return;
+  }
+
+  document.title = p.name + ' — Keneri Studios';
+  const live = p.status === 'testing';
+  const badge = live
+    ? '<span class="pill live"><i></i>Play · Internal testing</span>'
+    : '<span class="pill dev"><i></i>In development</span>';
+
+  const icon = p.logo
+    ? '<div class="glyph"><img src="' + p.logo + '" alt="' + p.name + '"></div>'
+    : '<div class="glyph">' + p.glyph + '</div>';
+
+  page.innerHTML =
+    '<header><div class="wrap"><div class="head">' + icon +
+      '<div><h1>' + p.name + '</h1>' +
+      '<p class="tag">' + p.tagline + '</p>' +
+      '<div class="meta">' + badge +
+        '<span class="pill plain">' + p.platform + '</span></div>' +
+      '</div></div></div></header>' +
+
+    '<section><div class="wrap"><h2>What it is</h2>' +
+      '<p class="lead">' + p.about + '</p></div></section>' +
+
+    '<section><div class="wrap"><h2>What it does</h2><ul>' +
+      p.features.map(function (f) { return '<li>' + f + '</li>'; }).join('') +
+      '</ul></div></section>' +
+
+    '<section><div class="wrap"><div class="card"><h2>Privacy — ' + p.name + '</h2>' +
+      '<ul class="privacy">' +
+      p.privacy.map(function (f) { return '<li>' + f + '</li>'; }).join('') +
+      '</ul>' +
+      '<p class="note">This is the summary for this product. The binding terms are in the ' +
+      '<a href="privacy-policy.html">Privacy Policy</a>, which covers every Keneri app.</p>' +
+      '</div></div></section>' +
+
+    '<section><div class="wrap"><div class="cta">' +
+      '<a class="btn primary" href="index.html#products">See the rest of the catalogue</a>' +
+      '<a class="btn ghost" href="mailto:keneristudios@gmail.com?subject=' +
+        encodeURIComponent(p.name) + '">Ask about ' + p.name + '</a>' +
+      '</div></div></section>';
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+/* Keneri Studios — dark skin for the inner pages.
+   The home page is near-black; these pages were built light. Rather than rewrite
+   four documents, this overrides the variables they already read, so one file
+   keeps the whole site in one palette. Loaded last, after each page's own CSS. */
+
+:root{
+  --bg-base:#07090f;
+  --bg-section:#0b0f18;
+  --bg-card:#0e1420;
+  --text-main:#f2f5fa;
+  --text-body:#a8b3c7;
+  --text-muted:#7b879b;
+  --border:#1a2230;
+  --border-dk:#26303f;
+  --gold:#e6a800;
+  --gold-dark:#ffd04d;
+  --gold-light:#ffd04d;
+  --gold-bg:rgba(230,168,0,.08);
+  --gold-border:rgba(230,168,0,.35);
+  --shadow-sm:0 1px 4px rgba(0,0,0,.5);
+  --shadow-md:0 8px 30px rgba(0,0,0,.6);
+}
+
+html{background:#07090f}
+body{
+  background:#07090f!important;
+  color:#a8b3c7!important;
+}
+
+/* Nav: same frosted bar as the home page. */
+nav{
+  background:rgba(7,9,15,.82)!important;
+  backdrop-filter:blur(18px) saturate(140%)!important;
+  border-bottom:1px solid #1a2230!important;
+}
+.logo{color:#f2f5fa!important}
+.logo-icon{
+  background:linear-gradient(140deg,#ffd04d,#e6a800)!important;
+  color:#1a1200!important;
+  box-shadow:0 0 22px rgba(230,168,0,.4);
+}
+.nav-links a{color:#7b879b!important}
+.nav-links a:hover{color:#f2f5fa!important}
+
+/* Sections and cards. */
+.section-divider{background:#0b0f18!important}
+h1,h2,h3,h4,h5{color:#f2f5fa}
+p,li{color:#a8b3c7}
+
+.card,
+[class*="-card"],
+[class*="Card"],
+.panel,
+.item,
+.tier{
+  background:#0e1420!important;
+  border-color:#1a2230!important;
+  box-shadow:0 20px 50px -30px rgba(0,0,0,.9)!important;
+}
+
+/* Gold stays gold — it is the studio's accent, and it reads better on black. */
+.gold, .badge, .pill, .tag{background:rgba(230,168,0,.12)!important;color:#ffd04d!important;border-color:rgba(230,168,0,.35)!important}
+
+a{color:#ffd04d}
+a:hover{color:#fff}
+
+table{border-color:#1a2230!important}
+th{background:#0e1420!important;color:#f2f5fa!important}
+td{border-color:#1a2230!important}
+
+footer{
+  background:#05070c!important;
+  border-top:1px solid #1a2230!important;
+  color:#7b879b;
+}
+
+::selection{background:rgba(230,168,0,.3);color:#fff}

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy | Keneri Studios</title>
-    <meta name="description" content="Master Privacy Policy for Keneri Studios and all published games and apps including Degen Empire: Richbro Edition.">
+    <meta name="description" content="Privacy Policy for Keneri Studios and every app we publish.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -163,6 +163,7 @@
             .policy-header h1 { font-size: 2.1rem; }
         }
     </style>
+<link rel="stylesheet" href="assets/theme.css">
 </head>
 <body>
 
@@ -173,7 +174,7 @@
         </a>
         <div class="nav-links">
             <a href="index.html">Home</a>
-            <a href="degen-empire.html">Degen Empire</a>
+            <a href="product.html?app=degen-empire">Degen Empire</a>
             <a href="terms.html">Terms</a>
             <a href="mailto:keneristudios@gmail.com">Contact</a>
         </div>
@@ -181,7 +182,7 @@
 
     <div class="container">
         <div class="policy-header">
-            <h1>Master Privacy Policy</h1>
+            <h1>Privacy Policy</h1>
             <p>Transparency, security, and player-first privacy standards across all products.</p>
         </div>
 
@@ -189,11 +190,11 @@
             <p><strong>Publisher / Developer:</strong> Keneri Studios</p>
             <p><strong>Applies to:</strong> All games, mobile applications, and web services (including <em>Degen Empire: Richbro Edition</em>)</p>
             <p><strong>Official Contact:</strong> <a href="mailto:keneristudios@gmail.com">keneristudios@gmail.com</a></p>
-            <p><strong>Effective Date:</strong> September 2026</p>
+            <p><strong>Effective Date:</strong> November 2026</p>
         </div>
 
         <h2>1. Scope of This Policy</h2>
-        <p>This Master Privacy Policy applies to all mobile games, software applications, and web services published by <strong>Keneri Studios</strong> (collectively, "our Games, Apps, and Services"). By downloading, testing, or using any of our titles—including pre-release closed betas—you acknowledge the practices outlined herein.</p>
+        <p>This policy applies to every mobile game, application and web service published by <strong>Keneri Studios</strong> (collectively, "our Games, Apps, and Services"). By downloading, testing, or using any of our titles—including pre-release closed betas—you acknowledge the practices outlined herein.</p>
 
         <h2>2. Data We Collect &amp; How We Use It</h2>
         <p>Keneri Studios adheres strictly to data minimization principles. We only collect the minimal information necessary to deliver core application functionality:</p>
@@ -219,34 +220,50 @@
             <li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Google Firebase Privacy &amp; Security</a></li>
         </ul>
 
-        <h2>4. Information We Do NOT Collect</h2>
+        <h2>4. App-Specific Disclosures</h2>
+        <p>The sections above describe the studio's common practices. Where an app handles data differently, it is listed here, and this section governs for that app.</p>
+
+        <h3>Monica &mdash; the study app</h3>
+        <p>Monica is built differently from our games. There is no account and no cloud: everything a student writes is stored on their own phone, and we operate no server that holds student data.</p>
+        <ul>
+            <li><strong>No account, no cloud.</strong> Courses, notes, conversations, practice results and the student profile are written to a local database on the device. Nothing is mirrored to Firebase, and there is no leaderboard.</li>
+            <li><strong>The model key is the student's own.</strong> Monica is bring-your-own-key. The student enters an API key for the AI provider they choose. It is stored in the phone's encrypted secure storage and sent only to that provider, over HTTPS. We never receive it and cannot read it.</li>
+            <li><strong>Microphone, only while a voice session is open.</strong> Voice study sessions stream microphone audio to Google's Gemini Live API so the student can speak with Monica and be answered aloud. The app does not record audio to a file, and we do not store it. The microphone permission is requested the first time voice is used; declining it leaves the rest of the app fully usable.</li>
+            <li><strong>Photos, only the ones a student attaches.</strong> A student may attach a picture to a question. The app copies that image into its own private storage on the device and sends it to the chosen model provider with that message, so the question can be answered. Images are not uploaded anywhere else, and they are removed when the student deletes the message or the app's data.</li>
+            <li><strong>Live web search, off by default.</strong> If the student switches it on, their question is sent to Google's search grounding service to answer from current sources. Switching it off stops this entirely.</li>
+            <li><strong>Advertising.</strong> Monica shows rewarded and interstitial ads through Google AdMob, exactly as described in Section 3.</li>
+            <li><strong>Deleting everything.</strong> Clearing the app's storage or uninstalling it removes every trace of the student's data. Because we hold no copy, there is nothing for us to delete on our side.</li>
+        </ul>
+        <p>Monica is intended for students aged 18 and over.</p>
+
+        <h2>5. Information We Do NOT Collect</h2>
         <p>We believe in strict data protection. We do not collect or request:</p>
         <ul>
             <li>Precise GPS location data.</li>
             <li>Physical addresses, telephone numbers, or biometric data.</li>
-            <li>Device contacts, text messages (SMS), photos, microphone, or camera access.</li>
+            <li>Device contacts or text messages (SMS). Where an app needs the microphone, the camera, or access to photos to do its job, that app says so in <strong>Section 4</strong> and asks for the permission itself.</li>
             <li>Credit card numbers, bank details, or financial accounts (handled solely by Google Play).</li>
         </ul>
         <p>We do <strong>not</strong> sell, rent, monetize, or trade any player or user data to third-party data brokers.</p>
 
-        <h2>5. Data Retention &amp; Deletion Rights</h2>
+        <h2>6. Data Retention &amp; Deletion Rights</h2>
         <p>We retain cloud save and leaderboard information only as long as you maintain an active account with our services. You have the full right to delete your data at any time:</p>
         <ul>
             <li><strong>Local Data:</strong> You can delete all local data immediately by clearing app storage or uninstalling the application from your device.</li>
             <li><strong>Cloud Save &amp; Leaderboard Deletion:</strong> To permanently delete your Google account record, cloud saves, and leaderboard entries from our Firebase servers, email us at <a href="mailto:keneristudios@gmail.com">keneristudios@gmail.com</a> with the subject <em>"Data Deletion Request"</em> and your in-app alias or registered Google email. We will process and permanently purge your records within 30 business days.</li>
         </ul>
 
-        <h2>6. Children’s Online Privacy (COPPA &amp; GDPR)</h2>
+        <h2>7. Children’s Online Privacy (COPPA &amp; GDPR)</h2>
         <p>Our applications are designed for general audiences and are not directed at children under the age of 13 (or under 16 in the European Economic Area). We do not knowingly collect personal data from minors. If a parent or guardian discovers that personal data has been submitted inadvertently, please contact us immediately at <a href="mailto:keneristudios@gmail.com">keneristudios@gmail.com</a> so we can remove the data.</p>
 
-        <h2>7. Managing Advertising Preferences &amp; Opt-Outs</h2>
+        <h2>8. Managing Advertising Preferences &amp; Opt-Outs</h2>
         <p>You have full control over personalized advertising on your mobile device:</p>
         <ul>
             <li><strong>Android:</strong> Go to <em>Settings &gt; Google &gt; Ads &gt; Reset or Delete advertising ID</em>.</li>
             <li><strong>iOS:</strong> Go to <em>Settings &gt; Privacy &amp; Security &gt; Tracking</em> and toggle app tracking permissions.</li>
         </ul>
 
-        <h2>8. Contact the Studio</h2>
+        <h2>9. Contact the Studio</h2>
         <p>If you have questions, feedback, or legal inquiries regarding this Privacy Policy or your data rights, please reach out directly:</p>
         <p><strong>Studio:</strong> Keneri Studios<br>
         <strong>Developer:</strong> Wisdom Nwaeze<br>
